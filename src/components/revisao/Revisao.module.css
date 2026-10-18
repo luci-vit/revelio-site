@@ -93,7 +93,7 @@
     border-bottom: 1px solid var(--linha);
   }
 
-  .tabelaFila td {
+  .tabelaFila.tabelaFila td {
     border: 0;
     padding: 4px 0;
   }
@@ -107,9 +107,13 @@
     color: var(--texto-apoio);
   }
 
-  .colAcao {
+  .tabelaFila.tabelaFila .colAcao {
     width: 100%;
-    padding-top: var(--e-1) !important;
+    padding-top: var(--e-1);
+  }
+
+  .caixaPrazo {
+    border-radius: var(--raio-card);
   }
 }
 
@@ -190,12 +194,19 @@
   background: var(--superficie-suave);
 }
 
+/* float põe a legenda dentro da caixa (e não sobre a borda) */
 .grupo legend {
+  float: left;
+  width: 100%;
   padding: 0;
   margin-bottom: var(--e-1);
   font-size: 14px;
   line-height: 20px;
   font-weight: 600;
+}
+
+.grupo legend + * {
+  clear: both;
 }
 
 .grupoInvalido {
@@ -288,14 +299,6 @@
 
 .nota input:focus-visible + span {
   box-shadow: var(--foco);
-}
-
-.escalaLegenda {
-  display: flex;
-  justify-content: space-between;
-  max-width: calc(5 * var(--alvo-minimo) + 4 * 6px);
-  font-size: 13px;
-  color: var(--texto-apoio);
 }
 
 .leitura {
