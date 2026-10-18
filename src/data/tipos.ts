@@ -120,6 +120,10 @@ export interface Inscricao {
   /** ISO. */
   data: string;
   certificadoDisponivel?: boolean;
+  /** Como a pessoa vai participar (B3). Sem valor: formato do evento. */
+  modalidade?: "Presencial" | "On-line";
+  /** Nome impresso no crachá (B3). Sem valor: nome da conta. */
+  nomeCracha?: string;
 }
 
 export interface Autor {
