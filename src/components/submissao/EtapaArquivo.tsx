@@ -1,6 +1,6 @@
 "use client";
 
-import { FileText, Upload } from "lucide-react";
+import { FileText, Upload, XCircle } from "lucide-react";
 import { useRef, useState, type ChangeEvent, type DragEvent } from "react";
 import { Botao } from "@/components/Botao";
 import { Aviso, Estado } from "@/components/Estado";
@@ -112,7 +112,10 @@ export function EtapaArquivo({
             <span>Confirmo que o arquivo não tem os nomes dos autores (revisão cega).</span>
           </label>
           {mostrarErros && !semNomes ? (
-            <p className="campo-erro">Marque a confirmação acima para continuar.</p>
+            <p className="campo-erro">
+              <XCircle size={16} aria-hidden="true" />
+              Marque a confirmação acima para continuar.
+            </p>
           ) : null}
         </div>
       ) : (
