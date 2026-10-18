@@ -1,0 +1,319 @@
+.corpo {
+  margin-top: var(--e-3);
+}
+
+.principal {
+  display: flex;
+  flex-direction: column;
+  gap: var(--e-4);
+  min-width: 0;
+}
+
+.lateral {
+  display: flex;
+  flex-direction: column;
+  gap: var(--e-3);
+}
+
+/* ---- Cabeçalho ---- */
+
+.cabecalho {
+  display: flex;
+  gap: var(--e-4);
+  align-items: flex-start;
+}
+
+.capa {
+  flex: 0 0 300px;
+  height: 180px;
+  display: flex;
+  align-items: flex-end;
+  padding: var(--e-2) var(--e-3);
+  border-radius: var(--raio-card);
+  color: var(--ameixa);
+  overflow: hidden;
+}
+
+.capa span {
+  font-family: var(--fonte-titulo);
+  font-weight: 800;
+  font-size: 26px;
+  line-height: 30px;
+  color: var(--branco);
+  text-shadow: 0 1px 12px rgba(43, 22, 49, 0.35);
+}
+
+.dados {
+  display: flex;
+  flex-direction: column;
+  gap: var(--e-2);
+  min-width: 0;
+}
+
+.titulo {
+  font-size: 40px;
+  line-height: 46px;
+}
+
+.infos {
+  display: flex;
+  flex-direction: column;
+  gap: var(--e-1);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: var(--texto-apoio);
+}
+
+.infos li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--e-1);
+}
+
+.infos svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+@media (max-width: 720px) {
+  .cabecalho {
+    flex-direction: column;
+    gap: var(--e-3);
+  }
+  .capa {
+    flex-basis: auto;
+    width: 100%;
+    height: 140px;
+  }
+  .titulo {
+    font-size: 30px;
+    line-height: 36px;
+  }
+}
+
+/* ---- Caixas da lateral ---- */
+
+.caixa {
+  display: flex;
+  flex-direction: column;
+  gap: var(--e-2);
+}
+
+.tituloCaixa {
+  font-family: var(--fonte-texto);
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 700;
+}
+
+.linkForte {
+  color: var(--ameixa);
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--alvo-minimo);
+}
+
+.linkBotao {
+  min-height: var(--alvo-minimo);
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--rosa-profundo);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+
+.linkBotao:hover {
+  text-decoration-thickness: 2px;
+}
+
+/* ---- Sobre ---- */
+
+.descricao {
+  font-size: 18px;
+  line-height: 28px;
+}
+
+.duasColunas {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--e-2);
+}
+
+@media (max-width: 720px) {
+  .duasColunas {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---- Chamada de trabalhos ---- */
+
+.instrucoes {
+  display: flex;
+  flex-direction: column;
+  gap: var(--e-1);
+  margin: 0;
+  padding-left: 20px;
+  font-size: 18px;
+  line-height: 28px;
+}
+
+/* ---- Programação ---- */
+
+.grade {
+  display: flex;
+  flex-direction: column;
+  gap: var(--e-3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.horario {
+  display: grid;
+  grid-template-columns: 72px minmax(0, 1fr);
+  gap: var(--e-2);
+}
+
+.hora {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 28px;
+  padding-top: var(--e-2);
+}
+
+.sessoes {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: var(--e-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sessao {
+  display: flex;
+  flex-direction: column;
+  gap: var(--e-1);
+  padding: var(--e-2);
+  background: var(--branco);
+  border: 1px solid var(--linha);
+  border-radius: 16px;
+}
+
+.sessaoConflito {
+  border-color: var(--atencao);
+  background: var(--atencao-fundo);
+}
+
+.tituloSessao {
+  font-family: var(--fonte-texto);
+  font-size: 17px;
+  line-height: 24px;
+  font-weight: 700;
+}
+
+.metaSessao {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--e-0) var(--e-2);
+  color: var(--texto-apoio);
+  font-size: 14px;
+  line-height: 20px;
+}
+
+@media (max-width: 720px) {
+  .horario {
+    grid-template-columns: 1fr;
+    gap: var(--e-1);
+  }
+  .hora {
+    padding-top: 0;
+  }
+}
+
+/* ---- Prazos ---- */
+
+.prazos {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--linha);
+}
+
+.prazo {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--e-3);
+  padding: var(--e-2) 0;
+  border-bottom: 1px solid var(--linha);
+}
+
+.prazoValor {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: var(--e-1);
+  text-align: right;
+  flex-shrink: 0;
+}
+
+@media (max-width: 720px) {
+  .prazo {
+    flex-direction: column;
+    gap: var(--e-1);
+  }
+  .prazoValor {
+    align-items: flex-start;
+    text-align: left;
+  }
+}
+
+/* ---- Aprovados ---- */
+
+.aprovados {
+  display: flex;
+  flex-direction: column;
+  gap: var(--e-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media (min-width: 721px) {
+  .caixa :global(.pares) dd {
+    white-space: nowrap;
+  }
+}
+
+/* No celular, a coluna única precisa poder encolher (as abas rolam na horizontal). */
+@media (max-width: 960px) {
+  .corpo:global(.com-lateral) {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.conflito {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  color: var(--atencao);
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 600;
+}
+
+.conflito svg {
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+/* Selos de estado na lateral podem quebrar linha em telas estreitas. */
+.selo > span {
+  white-space: normal;
+  max-width: 100%;
+}

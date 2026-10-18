@@ -1,0 +1,104 @@
+.titulo {
+  margin-bottom: var(--e-3);
+}
+
+.filtros {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--e-3);
+  margin-top: var(--e-3);
+}
+
+.limpar {
+  min-height: var(--alvo-minimo);
+  padding: 0 var(--e-1);
+  border: 0;
+  background: transparent;
+  color: var(--ameixa);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  cursor: pointer;
+}
+
+.limpar:hover:not(:disabled) {
+  color: var(--rosa-profundo);
+}
+
+.limpar:disabled {
+  color: var(--texto-apoio);
+  text-decoration: none;
+  cursor: default;
+}
+
+.resumo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--e-2);
+  margin: var(--e-4) 0 var(--e-2);
+}
+
+.ordem {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 100%;
+  gap: var(--e-1);
+  color: var(--texto-apoio);
+}
+
+.ordem select {
+  max-width: 100%;
+  min-height: var(--alvo-minimo);
+  padding: 0 32px 0 12px;
+  border: 1px solid transparent;
+  border-radius: var(--raio-campo);
+  background: transparent
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='%232b1631' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m4 6 4 4 4-4'/%3E%3C/svg%3E")
+    no-repeat right 10px center;
+  appearance: none;
+  color: var(--ameixa);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.ordem select:hover {
+  border-color: var(--linha);
+}
+
+.grade {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.grade > li {
+  display: flex;
+}
+
+.grade > li > * {
+  flex: 1;
+}
+
+.vazio {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--e-2);
+  padding: var(--e-6) var(--e-3);
+  text-align: center;
+  color: var(--ameixa);
+}
+
+/* Contorno local: o selo de estado do CardEvento não quebra linha e vaza em
+   telas estreitas (ex.: “Submissões até 14/11, 23:59 (BRT) · faltam 2 dias”). */
+@media (max-width: 480px) {
+  .grade [class*="estado"] {
+    white-space: normal;
+    max-width: 100%;
+  }
+}
