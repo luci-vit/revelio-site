@@ -1,0 +1,96 @@
+.cracha {
+  background: var(--branco);
+  border: 2px solid var(--ameixa);
+  border-radius: var(--raio-card);
+  overflow: hidden;
+}
+
+.topo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: var(--e-2) var(--e-3);
+  background: var(--ameixa);
+  color: var(--branco);
+}
+
+/* Anel da marca */
+.anel {
+  flex: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 4px solid var(--branco);
+}
+
+.evento {
+  font-size: 15px;
+  line-height: 20px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.corpo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--e-3);
+  padding: var(--e-3);
+}
+
+.dados {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.nome {
+  font-family: var(--fonte-titulo);
+  font-weight: 800;
+  font-size: 36px;
+  line-height: 42px;
+  letter-spacing: -0.01em;
+  margin-bottom: var(--e-0);
+  overflow-wrap: anywhere;
+}
+
+.codigo {
+  margin-top: var(--e-2);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.qr {
+  flex: none;
+  padding: var(--e-1);
+  border: 1px solid var(--linha);
+  border-radius: 12px;
+  background: var(--branco);
+}
+
+.rodape {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--e-1) var(--e-3);
+  padding: 12px var(--e-3);
+  border-top: 1px dashed var(--borda-funcional);
+  background: var(--superficie-suave);
+  color: var(--texto-apoio);
+  font-size: 14px;
+  line-height: 20px;
+}
+
+@media (max-width: 480px) {
+  .corpo {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+  }
+
+  .nome {
+    font-size: 30px;
+    line-height: 36px;
+  }
+}

@@ -365,7 +365,7 @@ function Formulario({ evento, usuario, trilha }: { evento: Evento; usuario: Pess
                     className={styles.radio}
                   />
                   <span className="tabular">
-                    {c.nome} · {dinheiro(c.preco)}
+                    {c.preco === 0 ? c.nome : `${c.nome} · ${dinheiro(c.preco)}`}
                   </span>
                 </label>
               ))}

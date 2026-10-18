@@ -36,3 +36,14 @@ export function localCurto(evento: Evento) {
   if (evento.local.online) return "On-line";
   return [evento.local.cidade, evento.local.uf].filter(Boolean).join(", ");
 }
+
+/** "no IV Simpósio…" / "na Jornada de IHC 2026" (contração com o nome do evento). */
+export function noEvento(nome: string) {
+  const feminino = /^(jornada|semana|conferência|escola|reunião|mostra|feira)\b/i.test(nome);
+  return `${feminino ? "na" : "no"} ${nome}`;
+}
+
+/** "do IV Simpósio…" / "da Jornada de IHC 2026". */
+export function doEvento(nome: string) {
+  return noEvento(nome).replace(/^n/, "d");
+}

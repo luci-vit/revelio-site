@@ -1,5 +1,8 @@
-import { EmConstrucao } from "@/components/EmConstrucao";
+import type { Metadata } from "next";
+import { InscricaoConfirmada } from "@/components/inscricao/InscricaoConfirmada";
+
+export const metadata: Metadata = { title: "Inscrição confirmada" };
 
 export default function Pagina() {
-  return <EmConstrucao codigo="B4" titulo="Inscrição confirmada" descricao="Confirmação e crachá com QR code." />;
+  return <InscricaoConfirmada />;
 }
