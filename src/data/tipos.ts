@@ -20,6 +20,11 @@ export interface Pessoa {
   temConta: boolean;
   /** Áreas de interesse/atuação (usadas no comitê e na distribuição). */
   areas?: string[];
+  /**
+   * Concordância de gênero declarada pela pessoa ("autora"/"autor"). Sem valor,
+   * a interface usa forma neutra. Nunca inferir pelo nome.
+   */
+  concordancia?: "feminino" | "masculino";
 }
 
 export interface Categoria {

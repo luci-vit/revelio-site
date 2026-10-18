@@ -187,7 +187,14 @@ function reducer(estado: Estado, acao: Acao): Estado {
         revisores[acao.posicao] = acao.revisorId;
         return { ...t, revisores };
       });
-      let pareceres = estado.pareceres;
+      // Quem saiu do trabalho perde o parecer ainda não concluído (sai da fila dele).
+      const anterior = estado.trabalhos.find((t) => t.codigo === acao.codigo)?.revisores[acao.posicao] ?? null;
+      let pareceres =
+        anterior && anterior !== acao.revisorId
+          ? estado.pareceres.filter(
+              (p) => !(p.trabalhoCodigo === acao.codigo && p.revisorId === anterior && p.situacao !== "concluido"),
+            )
+          : estado.pareceres;
       if (acao.revisorId && !pareceres.some((p) => p.trabalhoCodigo === acao.codigo && p.revisorId === acao.revisorId)) {
         pareceres = [
           ...pareceres,

@@ -10,6 +10,7 @@ export const PESSOAS: Pessoa[] = [
     vinculo: "Pós-graduação",
     temConta: true,
     areas: ["Cidades inteligentes", "Governo aberto"],
+    concordancia: "feminino",
   },
   {
     id: "luiz",

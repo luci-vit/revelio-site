@@ -6,16 +6,16 @@ export function nomePessoa(id: string | null | undefined) {
   return pessoa(id)?.nome ?? id ?? "";
 }
 
-/** Concordância simples para o cenário fictício (nomes femininos terminam em “a”). */
-function feminino(nome: string) {
-  return nome.split(" ")[0].toLowerCase().endsWith("a");
-}
-
-/** “autora”, “coautor”… conforme a posição no trabalho. */
+/**
+ * “autora”, “coautor”… conforme a posição no trabalho e a concordância
+ * declarada no cadastro da pessoa; sem ela, usa a forma neutra (“autoria”).
+ */
 export function papelDeAutoria(t: Trabalho, a: Autor) {
   const principal = a.pessoaId === t.responsavelId || t.autores[0] === a;
+  const concordancia = pessoa(a.pessoaId)?.concordancia;
+  if (!concordancia) return principal ? "autoria" : "coautoria";
   const base = principal ? "autor" : "coautor";
-  return feminino(a.nome) ? `${base}a` : base;
+  return concordancia === "feminino" ? `${base}a` : base;
 }
 
 export const ROTULO_RECOMENDACAO: Record<Recomendacao, string> = {
