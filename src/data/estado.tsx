@@ -3,7 +3,7 @@
 // Estado em memória da demonstração (sem backend). Guardado no sessionStorage
 // só para sobreviver a um recarregamento da página durante a apresentação.
 
-import { createContext, useCallback, useContext, useEffect, useMemo, useReducer, useRef, type ReactNode } from "react";
+import { createContext, useCallback, useContext, useEffect, useMemo, useReducer, type ReactNode } from "react";
 import { EVENTOS } from "./eventos";
 import { PESSOA_POR_PAPEL, pessoa } from "./pessoas";
 import {
@@ -303,32 +303,39 @@ const Contexto = createContext<ContextoEstado | null>(null);
 const CHAVE = "revelio-estado-v1";
 
 export function EstadoProvider({ children }: { children: ReactNode }) {
-  const [estado, despacharInterno] = useReducer(
-    (atual: Estado, acao: Acao | { tipo: "restaurar"; estado: Estado }) =>
-      acao.tipo === "restaurar" ? acao.estado : reducer(atual, acao),
-    ESTADO_INICIAL,
+  // `pronto` só vira true depois que o estado guardado foi aplicado; antes disso
+  // não salvamos, senão ESTADO_INICIAL sobrescreveria o que estava guardado.
+  const [{ estado, pronto }, despacharInterno] = useReducer(
+    (
+      atual: { estado: Estado; pronto: boolean },
+      acao: Acao | { tipo: "restaurar"; estado: Estado | null },
+    ) =>
+      acao.tipo === "restaurar"
+        ? { estado: acao.estado ?? atual.estado, pronto: true }
+        : { ...atual, estado: reducer(atual.estado, acao) },
+    { estado: ESTADO_INICIAL, pronto: false },
   );
-  const carregou = useRef(false);
 
   // Restaura depois da hidratação para não divergir do HTML do servidor.
   useEffect(() => {
+    let salvo: Estado | null = null;
     try {
       const bruto = sessionStorage.getItem(CHAVE);
-      if (bruto) despacharInterno({ tipo: "restaurar", estado: { ...ESTADO_INICIAL, ...(JSON.parse(bruto) as Partial<Estado>) } });
+      if (bruto) salvo = { ...ESTADO_INICIAL, ...(JSON.parse(bruto) as Partial<Estado>) };
     } catch {
       // sem storage: segue com o estado inicial
     }
-    carregou.current = true;
+    despacharInterno({ tipo: "restaurar", estado: salvo });
   }, []);
 
   useEffect(() => {
-    if (!carregou.current) return;
+    if (!pronto) return;
     try {
       sessionStorage.setItem(CHAVE, JSON.stringify(estado));
     } catch {
       // ignora
     }
-  }, [estado]);
+  }, [estado, pronto]);
 
   const despachar = useCallback((acao: Acao) => despacharInterno(acao), []);
 
