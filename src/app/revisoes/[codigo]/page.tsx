@@ -1,5 +1,8 @@
-import { EmConstrucao } from "@/components/EmConstrucao";
+import type { Metadata } from "next";
+import { TelaParecer } from "@/components/revisao/TelaParecer";
+
+export const metadata: Metadata = { title: "Registrar parecer" };
 
 export default function Pagina() {
-  return <EmConstrucao codigo="D3" titulo="Registrar parecer" descricao="Notas, recomendação e comentários." />;
+  return <TelaParecer />;
 }

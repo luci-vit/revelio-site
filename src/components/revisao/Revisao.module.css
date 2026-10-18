@@ -1,0 +1,317 @@
+/* Telas do revisor: D1 convite, D2 fila, D3 parecer. */
+
+.texto {
+  font-size: 18px;
+  line-height: 28px;
+}
+
+.pares {
+  padding: var(--e-1) var(--e-3);
+}
+
+.acoes {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--e-2);
+}
+
+.lateral {
+  padding-top: var(--e-6);
+}
+
+@media (max-width: 960px) {
+  .lateral {
+    padding-top: 0;
+  }
+}
+
+/* ---- D2 ---- */
+
+.resumo {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: var(--e-4);
+  align-items: center;
+}
+
+@media (max-width: 860px) {
+  .resumo {
+    grid-template-columns: 1fr;
+    gap: var(--e-2);
+  }
+}
+
+.progresso {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.caixaPrazo {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--e-1);
+  flex-wrap: wrap;
+  padding: 14px var(--e-3);
+  border: 1px solid var(--linha);
+  border-radius: var(--raio-pilula);
+  background: var(--superficie-suave);
+  font-variant-numeric: tabular-nums;
+}
+
+.colAcao {
+  width: 1%;
+  white-space: nowrap;
+}
+
+.vazio {
+  text-align: center;
+  color: var(--texto-apoio);
+}
+
+/* Em telas estreitas a tabela vira cartões empilhados. */
+@media (max-width: 720px) {
+  .tabelaFila thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+  }
+
+  .tabelaFila,
+  .tabelaFila tbody,
+  .tabelaFila tr,
+  .tabelaFila td {
+    display: block;
+    width: 100%;
+  }
+
+  .tabelaFila tr {
+    padding: var(--e-2) 0;
+    border-bottom: 1px solid var(--linha);
+  }
+
+  .tabelaFila.tabelaFila td {
+    border: 0;
+    padding: 4px 0;
+  }
+
+  .tabelaFila td[data-rotulo]::before {
+    content: attr(data-rotulo) ": ";
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--texto-apoio);
+  }
+
+  .tabelaFila.tabelaFila .colAcao {
+    width: 100%;
+    padding-top: var(--e-1);
+  }
+
+  .caixaPrazo {
+    border-radius: var(--raio-card);
+  }
+}
+
+/* ---- D3 ---- */
+
+.parecer {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+  gap: var(--e-5);
+  align-items: start;
+}
+
+@media (max-width: 960px) {
+  .parecer {
+    grid-template-columns: 1fr;
+    gap: var(--e-4);
+  }
+}
+
+.trabalho {
+  display: flex;
+  flex-direction: column;
+  gap: var(--e-2);
+}
+
+@media (min-width: 961px) {
+  .trabalho {
+    position: sticky;
+    top: calc(var(--altura-nav) + var(--e-3));
+  }
+}
+
+.arquivo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--e-2);
+  min-height: 280px;
+  padding: var(--e-4) var(--e-3);
+  border: 1px solid var(--linha);
+  border-radius: var(--raio-card);
+  background: var(--superficie-suave);
+  text-align: center;
+}
+
+.arquivoIcone {
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  background: var(--branco);
+  border: 1px solid var(--linha);
+  color: var(--ameixa);
+}
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+  gap: var(--e-3);
+}
+
+.grupo {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--e-1);
+  min-width: 0;
+}
+
+.grupoCaixa {
+  padding: var(--e-2) var(--e-3);
+  border: 1px solid var(--linha);
+  border-radius: var(--raio-card);
+  background: var(--superficie-suave);
+}
+
+/* float põe a legenda dentro da caixa (e não sobre a borda) */
+.grupo legend {
+  float: left;
+  width: 100%;
+  padding: 0;
+  margin-bottom: var(--e-1);
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 600;
+}
+
+.grupo legend + * {
+  clear: both;
+}
+
+.grupoInvalido {
+  border-color: var(--erro);
+}
+
+.opcoes {
+  display: flex;
+  flex-direction: column;
+}
+
+.opcoesLinha {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: var(--e-3);
+}
+
+.opcao {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: var(--alvo-minimo);
+  cursor: pointer;
+}
+
+.opcao input {
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  accent-color: var(--ameixa);
+  flex-shrink: 0;
+}
+
+.opcao input:focus-visible {
+  outline: none;
+  box-shadow: var(--foco);
+  border-radius: 50%;
+}
+
+.obrigatorio {
+  color: var(--rosa-profundo);
+}
+
+/* Notas 1–5: rádios em pílula */
+.notas {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: var(--e-2) var(--e-3);
+}
+
+.escala {
+  display: flex;
+  gap: 6px;
+}
+
+.nota {
+  position: relative;
+}
+
+.nota input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  margin: 0;
+  cursor: pointer;
+}
+
+.nota span {
+  display: grid;
+  place-items: center;
+  width: var(--alvo-minimo);
+  height: var(--alvo-minimo);
+  border: 1px solid var(--borda-funcional);
+  border-radius: var(--raio-pilula);
+  background: var(--branco);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  transition: background 120ms;
+}
+
+.nota input:hover + span {
+  background: var(--pessego);
+}
+
+.nota input:checked + span {
+  background: var(--ameixa);
+  border-color: var(--ameixa);
+  color: var(--branco);
+}
+
+.nota input:focus-visible + span {
+  box-shadow: var(--foco);
+}
+
+.leitura {
+  display: flex;
+  flex-direction: column;
+  gap: var(--e-2);
+}
+
+.leitura blockquote {
+  margin: 0;
+  padding: var(--e-2) var(--e-3);
+  border-radius: var(--raio-campo);
+  background: var(--superficie-suave);
+  border: 1px solid var(--linha);
+  white-space: pre-wrap;
+}

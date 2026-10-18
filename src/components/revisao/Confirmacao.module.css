@@ -1,0 +1,45 @@
+.dialogo {
+  padding: 0;
+  border: 1px solid var(--linha);
+  border-radius: var(--raio-card);
+  background: var(--branco);
+  color: var(--ameixa);
+  box-shadow: var(--sombra-flutuante);
+  width: min(520px, calc(100vw - 32px));
+  max-width: none;
+}
+
+.dialogo::backdrop {
+  background: rgba(43, 22, 49, 0.45);
+}
+
+.caixa {
+  display: flex;
+  flex-direction: column;
+  gap: var(--e-2);
+  padding: var(--e-4);
+}
+
+.texto {
+  display: flex;
+  flex-direction: column;
+  gap: var(--e-1);
+  color: var(--texto-apoio);
+}
+
+.acoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--e-2);
+  margin-top: var(--e-1);
+}
+
+@media (max-width: 480px) {
+  .caixa {
+    padding: var(--e-3);
+  }
+
+  .acoes > * {
+    width: 100%;
+  }
+}

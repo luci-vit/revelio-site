@@ -1,5 +1,8 @@
-import { EmConstrucao } from "@/components/EmConstrucao";
+import type { Metadata } from "next";
+import { TelaConvite } from "@/components/revisao/TelaConvite";
+
+export const metadata: Metadata = { title: "Convite para revisar" };
 
 export default function Pagina() {
-  return <EmConstrucao codigo="D1" titulo="Convite para revisar" descricao="Aceitar e se inscrever, ou recusar." />;
+  return <TelaConvite />;
 }
