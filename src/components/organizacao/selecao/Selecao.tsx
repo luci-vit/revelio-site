@@ -148,10 +148,12 @@ export function Selecao() {
               return (
                 <tr key={t.codigo} className={!completo || r.divergente ? styles.destaque : undefined}>
                   <td className="codigo">{t.codigo}</td>
-                  <td className="tabular">
-                    {r.concluidos} de {PARECERES_POR_TRABALHO}
+                  <td>
+                    <span className="tabular">
+                      {r.concluidos} de {PARECERES_POR_TRABALHO}
+                    </span>
                     {r.mediaGeral !== null ? (
-                      <span className={styles.media}>média {r.mediaGeral.toLocaleString("pt-BR", { maximumFractionDigits: 1 })}</span>
+                      <span className={styles.media}>média {r.mediaGeral.toLocaleString("pt-BR", { minimumFractionDigits: 1, maximumFractionDigits: 1 })}</span>
                     ) : null}
                   </td>
                   <td>
