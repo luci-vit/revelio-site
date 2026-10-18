@@ -1,5 +1,13 @@
-import { EmConstrucao } from "@/components/EmConstrucao";
+import type { Metadata } from "next";
+import { Suspense } from "react";
+import { MeusTrabalhos } from "@/components/trabalhos/MeusTrabalhos";
+
+export const metadata: Metadata = { title: "Meus trabalhos" };
 
 export default function Pagina() {
-  return <EmConstrucao codigo="C4" titulo="Meus trabalhos" descricao="Todos os trabalhos com a situação de cada um." />;
+  return (
+    <Suspense>
+      <MeusTrabalhos />
+    </Suspense>
+  );
 }

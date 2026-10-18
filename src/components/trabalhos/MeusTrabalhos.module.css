@@ -1,0 +1,86 @@
+.tabela td {
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+.destacada td {
+  background: var(--pessego);
+}
+
+.acao {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--alvo-minimo);
+  color: var(--ameixa);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.acao:hover {
+  color: var(--rosa-profundo);
+}
+
+.vazio {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--e-1);
+  max-width: 640px;
+}
+
+.vazio > :last-child {
+  margin-top: var(--e-1);
+}
+
+.vazioIcone {
+  color: var(--texto-apoio);
+}
+
+/* Celular: cada trabalho vira um bloco com rótulos */
+@media (max-width: 720px) {
+  .tabela thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+  }
+
+  .tabela,
+  .tabela tbody,
+  .tabela tr,
+  .tabela td {
+    display: block;
+    width: 100%;
+  }
+
+  .tabela tr {
+    padding: var(--e-1) 0;
+    border-bottom: 1px solid var(--linha);
+  }
+
+  .tabela td {
+    border-bottom: 0;
+    padding: 4px 0;
+  }
+
+  .tabela td::before {
+    content: attr(data-rotulo);
+    display: block;
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--texto-apoio);
+  }
+
+  .tabela td:first-child::before,
+  .tabela td:last-child::before {
+    display: none;
+  }
+
+  .tabela td :global(span) {
+    white-space: normal;
+  }
+}
