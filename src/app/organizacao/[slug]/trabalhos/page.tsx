@@ -1,5 +1,5 @@
-import { EmConstrucao } from "@/components/EmConstrucao";
+import { Distribuicao } from "@/components/organizacao/distribuicao/Distribuicao";
 
 export default function Pagina() {
-  return <EmConstrucao codigo="E4" titulo="Trabalhos" descricao="Distribuição dos trabalhos aos revisores." />;
+  return <Distribuicao />;
 }

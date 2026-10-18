@@ -1,5 +1,5 @@
-import { EmConstrucao } from "@/components/EmConstrucao";
+import { Publicacao } from "@/components/organizacao/publicacao/Publicacao";
 
 export default function Pagina() {
-  return <EmConstrucao codigo="E6" titulo="Publicação do resultado" descricao="Lista pública e certificados." />;
+  return <Publicacao />;
 }
