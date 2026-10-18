@@ -1,5 +1,5 @@
-import { EmConstrucao } from "@/components/EmConstrucao";
+import { PaginaInicial } from "@/components/conta/PaginaInicial";
 
 export default function Pagina() {
-  return <EmConstrucao codigo="A1" titulo="Página inicial" descricao="Busca segmentada, três passos e chamada para criar conta." />;
+  return <PaginaInicial />;
 }
