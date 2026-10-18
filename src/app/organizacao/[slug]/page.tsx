@@ -1,5 +1,6 @@
-import { EmConstrucao } from "@/components/EmConstrucao";
+import { PaginaPainel } from "@/components/organizacao/painel/PainelEvento";
 
-export default function Pagina() {
-  return <EmConstrucao codigo="E2" titulo="Painel do evento" descricao="Fases, números e pendências." />;
+export default async function Pagina({ params }: PageProps<"/organizacao/[slug]">) {
+  const { slug } = await params;
+  return <PaginaPainel slug={slug} />;
 }
