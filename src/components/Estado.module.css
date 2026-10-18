@@ -9,7 +9,7 @@
   line-height: 20px;
   font-weight: 600;
   font-variant-numeric: tabular-nums;
-  white-space: nowrap;
+  max-width: 100%;
 }
 
 .estado svg {
