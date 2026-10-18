@@ -163,12 +163,19 @@ export function ComiteCientifico({ slug }: { slug: string }) {
               autoComplete="off"
               placeholder="joana.lima@ufpe.br"
               value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={(e) => {
+                setEmail(e.target.value);
+                setErros((x) => ({ ...x, email: undefined }));
+              }}
               erro={erros.email}
             />
           </div>
           <div className={styles.area}>
-            <CampoSelecao rotulo="Área" obrigatorio value={area} onChange={(e) => setArea(e.target.value)} erro={erros.area}>
+            <CampoSelecao rotulo="Área" obrigatorio value={area} onChange={(e) => {
+                setArea(e.target.value);
+                setErros((x) => ({ ...x, area: undefined }));
+              }}
+              erro={erros.area}>
               <option value="">Escolha a área</option>
               {areas.map((a) => (
                 <option key={a} value={a}>
@@ -192,7 +199,7 @@ export function ComiteCientifico({ slug }: { slug: string }) {
         </div>
       ) : (
         <div className="tabela-envoltorio">
-          <table className="tabela">
+          <table className={`tabela ${styles.tabela}`}>
             <caption className="sr-only">Convites do comitê científico</caption>
             <thead>
               <tr>
@@ -208,7 +215,8 @@ export function ComiteCientifico({ slug }: { slug: string }) {
                 const p = pessoa(c.pessoaId);
                 const temConta = Boolean(p?.temConta);
                 const nome = p?.nome ?? c.email ?? c.pessoaId;
-                const inscrito = estaInscrito(estado, c.pessoaId, slug);
+                // Aceitar o convite inclui a inscrição no evento (D1); o seed não inscreve todos os revisores aceitos.
+                const inscrito = c.situacao === "aceito" || estaInscrito(estado, c.pessoaId, slug);
                 return (
                   <tr key={c.id}>
                     <td>
