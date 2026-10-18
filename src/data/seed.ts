@@ -127,6 +127,8 @@ export const TRABALHOS_INICIAIS: Trabalho[] = [
     responsavelId: "ana",
     arquivo: { nome: "gastos-municipais.pdf", paginas: 11, tamanho: "2,4 MB", enviadoEm: "2026-06-28T21:05:00-03:00" },
     situacao: "aprovado-com-ajustes",
+    orientacaoComissao:
+      "Atender às observações dos dois pareceres, em especial a descrição da limpeza dos dados e as legendas das figuras.",
     revisores: ["roberto", "fernanda"],
   },
 

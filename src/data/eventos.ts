@@ -234,6 +234,7 @@ export const EVENTOS: Evento[] = [
     prazos: {
       submissoes: "2026-06-30T23:59:00-03:00",
       resultado: "2026-08-10T23:59:00-03:00",
+      versaoFinal: "2026-09-05T23:59:00-03:00",
     },
     situacaoSubmissoes: "encerrada",
     encerrado: true,

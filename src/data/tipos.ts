@@ -169,6 +169,8 @@ export interface Trabalho {
   /** Revisores atribuídos (até 2). */
   revisores: (string | null)[];
   versaoAjustada?: Arquivo;
+  /** Orientação da comissão ao autor junto com a decisão (C5). */
+  orientacaoComissao?: string;
   apresentacao?: { dia: string; inicio: string; sala: string };
   /**
    * O SBDA-0042 começa como rascunho para que o fluxo C2→C4 possa ser
