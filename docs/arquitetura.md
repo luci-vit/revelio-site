@@ -30,6 +30,10 @@ Next.js 16 (App Router) + TypeScript, sem backend. CSS puro: tokens globais em `
 
 As telas E2–E7 já ficam dentro de `LayoutOrganizacao` (menu lateral), via `src/app/organizacao/[slug]/layout.tsx`.
 
+Parâmetros que ligam os fluxos: A1 → `/eventos?q=&onde=&quando=&filtro=`; C3 → `/meus-trabalhos?enviado=SBDA-0042` (faixa de confirmação); D1 → `/eventos/sbda-2027/inscricao?retorno=/revisoes` (volta à fila depois de se inscrever); A2 → `?evento=<slug>` segue para A3.
+
+Componentes de cada tela ficam em `src/components/<fluxo>/`: `conta/` (A), `evento/` (B1, B2, C1), `inscricao/` (B3–B5), `submissao/` (C2, C3), `trabalhos/` (C4, C5), `revisao/` (D), `organizacao/<tela>/` (E).
+
 ## Estado e dados (`src/data/`)
 
 - `tipos.ts` — tipos do domínio.
@@ -37,6 +41,8 @@ As telas E2–E7 já ficam dentro de `LayoutOrganizacao` (menu lateral), via `sr
 - `estado.tsx` — `EstadoProvider` + `useEstado()` → `{ estado, despachar, usuario, papel, definirPapel }`. Ações tipadas em `Acao` (inscrever, salvarTrabalho, enviarTrabalho, responderConvite, salvarParecer, atribuirRevisor, distribuirAutomaticamente, definirDecisao, publicarResultado, emitirCertificados, salvarEvento, marcarLida…). Persistido em `sessionStorage`.
 - `selectors.ts` — consultas prontas (`inscricaoNoEvento`, `trabalhosDaPessoa`, `trabalhosSubmetidos`, `filaDoRevisor`, `pareceresDoTrabalho`, `proximoCodigo`…).
 - `demo.ts` — “hoje” da demonstração por papel.
+
+Regras do domínio já no reducer: parecer pendente sai da fila quando o revisor é trocado/removido (`atribuirRevisor`); revisor com conflito de interesse é liberado do trabalho (D3); concordância “autora/autor” vem de `Pessoa.concordancia`, nunca do nome.
 
 Papel → pessoa logada: participante/autor = Ana Ribeiro, revisor = Paulo Silva, organizador = Marta Souza. O seletor “Demonstração” (canto inferior direito) troca o papel.
 
