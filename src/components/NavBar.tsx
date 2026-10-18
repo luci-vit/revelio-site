@@ -77,7 +77,17 @@ export function NavBar() {
         { rotulo: "Para organizadores", href: "/#para-organizadores", ativoEm: [] },
       ];
 
+  // Subpáginas de evento que pertencem a outra seção do menu (como no protótipo).
+  const secaoDoEvento = logado
+    ? /^\/eventos\/[^/]+\/submissao/.test(caminho)
+      ? "/meus-trabalhos"
+      : /^\/eventos\/[^/]+\/inscricao/.test(caminho)
+        ? "/minhas-inscricoes"
+        : null
+    : null;
+
   function ativo(item: ItemMenu) {
+    if (secaoDoEvento) return item.href === secaoDoEvento;
     return item.ativoEm.some((p) => (p === "/" ? caminho === "/" : caminho === p || caminho.startsWith(p + "/")));
   }
 
