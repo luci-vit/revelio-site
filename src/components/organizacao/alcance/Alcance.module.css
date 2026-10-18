@@ -1,0 +1,394 @@
+/* E7 — Alcance do evento */
+
+/* ---------- Números ---------- */
+
+.numeros {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--e-2);
+}
+
+.numeroApoio {
+  color: var(--ameixa);
+  font-size: 15px;
+  line-height: 20px;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- Cartões ---------- */
+
+.cartao {
+  --barra-rosada: #e7bfb3;
+  --barra-trilho: #f4e9e6;
+  --barra-usos: #5e4a63;
+  display: flex;
+  flex-direction: column;
+  gap: var(--e-3);
+  min-width: 0;
+}
+
+.cartaoTopo {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--e-2);
+  flex-wrap: wrap;
+}
+
+.cartaoTextos {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* Título de seção abaixo de 22px: Inter, conforme a tipografia. */
+.cartaoTitulo {
+  font-family: var(--fonte-texto);
+  font-size: 19px;
+  line-height: 26px;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+.linhaGraficos {
+  display: grid;
+  grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr);
+  gap: var(--e-2);
+  align-items: stretch;
+}
+
+.linhaTabelas {
+  display: grid;
+  grid-template-columns: minmax(0, 2.6fr) minmax(0, 1fr);
+  gap: var(--e-2);
+  align-items: stretch;
+}
+
+/* ---------- Gráfico de semanas ---------- */
+
+.rolagem {
+  overflow-x: auto;
+  border-radius: var(--raio-pequeno);
+  padding-top: var(--e-1);
+}
+
+.grafico {
+  position: relative;
+  display: grid;
+  grid-template-columns: 32px 1fr;
+  gap: var(--e-1);
+  min-width: 560px;
+  height: 300px;
+  padding-bottom: 28px; /* espaço para as datas */
+}
+
+.eixoY {
+  position: relative;
+}
+
+.eixoY span {
+  position: absolute;
+  right: 4px;
+  transform: translateY(50%);
+  font-size: 13px;
+  line-height: 16px;
+  color: var(--texto-apoio);
+  font-variant-numeric: tabular-nums;
+}
+
+.area {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  gap: 4px;
+  border-bottom: 1px solid var(--borda-funcional);
+}
+
+.grade {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 0;
+  border-top: 1px solid var(--linha);
+}
+
+.coluna {
+  position: relative;
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.colunaBarra {
+  position: relative;
+  flex: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.barra {
+  position: relative;
+  flex-shrink: 0;
+  width: 76%;
+  max-width: 48px;
+  border-radius: 6px 6px 0 0;
+  background: var(--barra-rosada);
+}
+
+.barraPico {
+  background: var(--ameixa);
+}
+
+.valorBarra {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 600;
+  color: var(--ameixa);
+  margin-bottom: 4px;
+  font-variant-numeric: tabular-nums;
+}
+
+.rotuloSemana {
+  position: absolute;
+  bottom: -26px;
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--texto-apoio);
+  white-space: nowrap;
+}
+
+.marcoFim {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  bottom: 0;
+  right: -4px;
+  border-right: 2px dashed var(--ameixa);
+}
+
+.marcoTexto {
+  position: absolute;
+  top: -4px;
+  left: 6px;
+  display: flex;
+  flex-direction: column;
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--ameixa);
+  white-space: nowrap;
+  background: var(--branco);
+  padding: 0 4px;
+}
+
+.marcoTexto strong {
+  font-weight: 600;
+}
+
+/* ---------- Funil e barras horizontais ---------- */
+
+.funil {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--e-3);
+}
+
+.funilEtapa {
+  display: flex;
+  flex-direction: column;
+  gap: var(--e-1);
+}
+
+.funilLinha {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 4px var(--e-2);
+}
+
+.funilValor {
+  color: var(--ameixa);
+}
+
+.funilValor strong {
+  font-weight: 700;
+}
+
+.trilho {
+  display: block;
+  height: 14px;
+  border-radius: var(--raio-pilula);
+  background: var(--barra-trilho);
+  overflow: hidden;
+}
+
+.preenchido {
+  display: block;
+  height: 100%;
+  border-radius: var(--raio-pilula);
+  background: var(--ameixa);
+}
+
+.preenchidoBase {
+  background: var(--barra-rosada);
+}
+
+.origem {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.origemItem {
+  display: grid;
+  grid-template-columns: 56px minmax(0, 1fr) 40px;
+  align-items: center;
+  gap: var(--e-2);
+}
+
+.origemUf {
+  font-weight: 500;
+}
+
+.origemValor {
+  text-align: right;
+  font-weight: 700;
+}
+
+/* ---------- Cupons ---------- */
+
+.tabelaCupons th,
+.tabelaCupons td {
+  padding: 14px 12px;
+}
+
+.tabelaCupons thead th {
+  white-space: normal;
+  line-height: 16px;
+  border-bottom: 2px solid var(--ameixa);
+  vertical-align: bottom;
+}
+
+.tabelaCupons tbody th {
+  text-transform: none;
+  letter-spacing: 0;
+  background: transparent;
+  font-size: 15px;
+  border-bottom: 1px solid var(--linha);
+}
+
+.divulgador {
+  font-weight: 600;
+  min-width: 132px;
+}
+
+.num {
+  text-align: right !important;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+.melhor {
+  font-weight: 700;
+}
+
+.chipCupom {
+  display: inline-flex;
+  padding: 4px 12px;
+  border-radius: var(--raio-pilula);
+  background: var(--superficie-suave);
+  border: 1px solid var(--linha);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.usos {
+  display: flex;
+  align-items: center;
+  gap: var(--e-1);
+  min-width: 120px;
+}
+
+.usosBarra {
+  display: block;
+  height: 14px;
+  max-width: calc(100% - 40px);
+  border-radius: var(--raio-pilula);
+  background: var(--barra-usos);
+}
+
+.formCupom {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) auto;
+  align-items: start;
+  gap: var(--e-2);
+  padding: var(--e-2);
+  border-radius: var(--raio-campo-grande);
+  background: var(--superficie-suave);
+}
+
+.formAcoes {
+  display: flex;
+  gap: var(--e-1);
+  padding-top: 28px;
+}
+
+/* ---------- Estado vazio ---------- */
+
+.vazio {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--e-1);
+  max-width: 640px;
+  color: var(--ameixa);
+}
+
+.vazioTitulo {
+  font-weight: 700;
+  font-size: 18px;
+}
+
+/* ---------- Responsivo ---------- */
+
+@media (max-width: 1180px) {
+  .numeros {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .linhaGraficos,
+  .linhaTabelas {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 720px) {
+  .formCupom {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .formAcoes {
+    padding-top: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .numeros {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
