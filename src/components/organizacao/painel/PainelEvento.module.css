@@ -1,0 +1,54 @@
+.painel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--e-4);
+}
+
+.painel header {
+  margin-bottom: 0;
+}
+
+.fase {
+  color: var(--ameixa);
+}
+
+.acoes {
+  display: flex;
+  align-items: center;
+  gap: var(--e-1);
+  flex-wrap: wrap;
+}
+
+.seletor select {
+  min-height: var(--altura-botao-pequeno);
+  padding: 8px 16px;
+  border-radius: var(--raio-pilula);
+}
+
+.fases {
+  padding: var(--e-1) 0;
+}
+
+.numeros {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--e-3);
+}
+
+@media (max-width: 1100px) {
+  .numeros {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 520px) {
+  .numeros {
+    grid-template-columns: 1fr;
+  }
+  .fases {
+    overflow-x: auto;
+  }
+  .fases ol {
+    min-width: 520px;
+  }
+}

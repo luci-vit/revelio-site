@@ -1,0 +1,151 @@
+.topo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--e-3);
+  margin-bottom: var(--e-5);
+}
+
+.corpo {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 360px;
+  gap: var(--e-5);
+  align-items: start;
+}
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+  gap: var(--e-3);
+  background: var(--branco);
+  border: 1px solid var(--linha);
+  border-radius: var(--raio-card);
+  padding: var(--e-4);
+}
+
+.titulo:focus-visible {
+  border-radius: var(--raio-pequeno);
+}
+
+.grade {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--e-2);
+  align-items: start;
+}
+
+.dois {
+  grid-column: span 2;
+}
+
+.tres {
+  grid-column: 1 / -1;
+}
+
+.vazio {
+  display: block;
+}
+
+.opcao {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--e-1);
+  min-height: var(--alvo-minimo);
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.opcao input {
+  width: 22px;
+  height: 22px;
+  accent-color: var(--ameixa);
+}
+
+.categorias {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--e-2);
+}
+
+.categorias legend {
+  margin-bottom: var(--e-1);
+}
+
+.obrigatorio {
+  color: var(--rosa-profundo);
+}
+
+.categoria {
+  display: grid;
+  grid-template-columns: 200px minmax(0, 280px);
+  gap: var(--e-2);
+  align-items: end;
+}
+
+.rodape {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--e-2);
+  flex-wrap: wrap;
+}
+
+.voltar,
+.editar {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--alvo-minimo);
+  padding: 0 var(--e-1);
+  border: 0;
+  background: none;
+  color: var(--ameixa);
+  font: inherit;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+
+.editar {
+  color: var(--rosa-profundo);
+  font-weight: 500;
+}
+
+.dica {
+  position: sticky;
+  top: 112px;
+}
+
+@media (max-width: 1060px) {
+  .corpo {
+    grid-template-columns: 1fr;
+  }
+  .dica {
+    position: static;
+    order: -1;
+  }
+}
+
+@media (max-width: 720px) {
+  .formulario {
+    padding: var(--e-3) var(--e-2);
+  }
+  .grade {
+    grid-template-columns: 1fr;
+  }
+  .dois,
+  .tres {
+    grid-column: auto;
+  }
+  .vazio {
+    display: none;
+  }
+  .categoria {
+    grid-template-columns: 1fr;
+  }
+  .topo ol {
+    overflow-x: auto;
+  }
+}
