@@ -1,5 +1,5 @@
-import { EmConstrucao } from "@/components/EmConstrucao";
+import { Selecao } from "@/components/organizacao/selecao/Selecao";
 
 export default function Pagina() {
-  return <EmConstrucao codigo="E5" titulo="Seleção" descricao="Decisões a partir dos pareceres." />;
+  return <Selecao />;
 }

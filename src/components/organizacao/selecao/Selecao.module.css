@@ -1,0 +1,91 @@
+.tabela {
+  min-width: 860px;
+}
+
+/* Pareceres incompletos ou divergentes: faixa de atenção à esquerda */
+.destaque td:first-child {
+  box-shadow: inset 4px 0 0 var(--atencao);
+}
+
+.media {
+  display: block;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--texto-apoio);
+}
+
+.colDecisao {
+  width: 300px;
+}
+
+.colAcao {
+  min-width: 220px;
+}
+
+.seletor {
+  min-height: var(--alvo-minimo);
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+.seletor:disabled {
+  cursor: not-allowed;
+  background: var(--neutro-fundo);
+}
+
+.vazio {
+  color: var(--texto-apoio);
+}
+
+/* Mesmo visual do BotaoBloqueado, com a explicação na coluna ao lado */
+.bloqueado {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--e-1);
+  min-height: var(--altura-botao);
+  padding: 0 var(--e-3);
+  border: 0;
+  border-radius: var(--raio-pilula);
+  background: var(--neutro-fundo);
+  color: var(--texto-apoio);
+  font-weight: 600;
+  cursor: not-allowed;
+}
+
+.bloqueado:focus-visible {
+  border-radius: var(--raio-pilula);
+}
+
+.falta {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  color: var(--ameixa);
+}
+
+.falta svg {
+  margin-top: 3px;
+  flex-shrink: 0;
+}
+
+.link {
+  min-height: var(--alvo-minimo);
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--ameixa);
+  font: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+
+.link:hover {
+  color: var(--rosa-profundo);
+}
+
+/* Dobrado para vencer a regra global `.campo label` */
+.rotuloOrientacao.rotuloOrientacao {
+  font-size: 16px;
+  font-weight: 700;
+}
