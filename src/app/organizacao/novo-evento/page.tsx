@@ -1,5 +1,5 @@
-import { EmConstrucao } from "@/components/EmConstrucao";
+import { PaginaNovoEvento } from "@/components/organizacao/novo-evento/NovoEvento";
 
 export default function Pagina() {
-  return <EmConstrucao codigo="E1" titulo="Criar evento" descricao="Dados e prazos com validação." />;
+  return <PaginaNovoEvento />;
 }
