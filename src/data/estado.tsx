@@ -72,6 +72,7 @@ export type Acao =
   | { tipo: "enviarVersaoAjustada"; codigo: string; arquivo: NonNullable<Trabalho["versaoAjustada"]> }
   | { tipo: "responderConvite"; conviteId: string; resposta: "aceito" | "recusado" }
   | { tipo: "convidarRevisor"; convite: ConviteRevisao }
+  | { tipo: "cancelarConvite"; conviteId: string }
   | { tipo: "salvarParecer"; parecer: Parecer }
   | { tipo: "atribuirRevisor"; codigo: string; posicao: 0 | 1; revisorId: string | null }
   | { tipo: "distribuirAutomaticamente"; eventoSlug: string }
@@ -164,6 +165,9 @@ function reducer(estado: Estado, acao: Acao): Estado {
 
     case "convidarRevisor":
       return { ...estado, convites: [...estado.convites, acao.convite] };
+
+    case "cancelarConvite":
+      return { ...estado, convites: estado.convites.filter((c) => c.id !== acao.conviteId) };
 
     case "salvarParecer": {
       const existe = estado.pareceres.some((p) => p.id === acao.parecer.id);

@@ -207,6 +207,8 @@ export interface ConviteRevisao {
   trabalhosPrevistos: number;
   situacao: "pendente" | "aceito" | "recusado";
   enviadoEm: string; // ISO
+  /** E-mail digitado no convite (E3), para quem ainda não tem conta. */
+  email?: string;
 }
 
 export type Decisao = "aprovado" | "aprovado-com-ajustes" | "rejeitado";

@@ -1,0 +1,46 @@
+.formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.campos {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr) auto;
+  gap: var(--e-2);
+  align-items: start;
+}
+
+/* alinha o botão com os campos (abaixo do rótulo de 20px + 6px) */
+.botao {
+  padding-top: 26px;
+}
+
+.acao {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--alvo-minimo);
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--rosa-profundo);
+  font: inherit;
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.acao:hover {
+  text-decoration-thickness: 2px;
+}
+
+@media (max-width: 860px) {
+  .campos {
+    grid-template-columns: 1fr;
+  }
+  .botao {
+    padding-top: 0;
+  }
+}
