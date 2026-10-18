@@ -44,11 +44,14 @@
 .ordem {
   display: inline-flex;
   align-items: center;
+  flex-wrap: wrap;
+  max-width: 100%;
   gap: var(--e-1);
   color: var(--texto-apoio);
 }
 
 .ordem select {
+  max-width: 100%;
   min-height: var(--alvo-minimo);
   padding: 0 32px 0 12px;
   border: 1px solid transparent;
@@ -89,4 +92,13 @@
   padding: var(--e-6) var(--e-3);
   text-align: center;
   color: var(--ameixa);
+}
+
+/* Contorno local: o selo de estado do CardEvento não quebra linha e vaza em
+   telas estreitas (ex.: “Submissões até 14/11, 23:59 (BRT) · faltam 2 dias”). */
+@media (max-width: 480px) {
+  .grade [class*="estado"] {
+    white-space: normal;
+    max-width: 100%;
+  }
 }
