@@ -230,15 +230,7 @@ export function Submissao() {
       trabalho: { ...trabalho, arquivo: { ...trabalho.arquivo!, enviadoEm: new Date().toISOString() } },
     });
     despachar({ tipo: "enviarTrabalho", codigo: trabalho.codigo });
-    const temCoautores = trabalho.autores.length > 1;
-    mostrarToast({
-      mensagem: (
-        <>
-          Trabalho enviado. Número da submissão: <strong>{trabalho.codigo}</strong>.
-          {temCoautores ? " Os coautores foram avisados por e-mail." : ""}
-        </>
-      ),
-    });
+    // A confirmação aparece como faixa no topo de Meus trabalhos (C4).
     router.push(`/meus-trabalhos?enviado=${encodeURIComponent(trabalho.codigo)}`);
   }
 
