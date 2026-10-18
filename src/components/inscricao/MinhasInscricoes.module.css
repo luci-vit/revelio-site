@@ -1,0 +1,33 @@
+.estreito {
+  max-width: 760px;
+}
+
+.tabela {
+  min-width: 720px;
+  background: var(--branco);
+}
+
+.evento {
+  font-weight: 700;
+}
+
+.periodo {
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.evento a {
+  display: block;
+  color: var(--ameixa);
+  text-decoration: none;
+}
+
+.evento a:hover {
+  text-decoration: underline;
+}
+
+.evento :global(.apoio) {
+  display: block;
+  font-weight: 400;
+  margin-top: 2px;
+}

@@ -1,5 +1,8 @@
-import { EmConstrucao } from "@/components/EmConstrucao";
+import type { Metadata } from "next";
+import { MinhasInscricoes } from "@/components/inscricao/MinhasInscricoes";
+
+export const metadata: Metadata = { title: "Minhas inscrições" };
 
 export default function Pagina() {
-  return <EmConstrucao codigo="B5" titulo="Minhas inscrições" descricao="Tabela de inscrições com painel de avisos." />;
+  return <MinhasInscricoes />;
 }
