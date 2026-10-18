@@ -1,0 +1,448 @@
+/* Submissão em etapas (C2/C3). Superfícies sólidas: formulário longo, sem vidro. */
+
+.topo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--e-3);
+  margin-bottom: var(--e-5);
+}
+
+.trilhaLinha {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  color: var(--texto-apoio);
+}
+
+.salvo {
+  color: var(--texto-apoio);
+  font-variant-numeric: tabular-nums;
+}
+
+.secao {
+  display: flex;
+  flex-direction: column;
+  gap: var(--e-3);
+}
+
+.secaoCabecalho {
+  display: flex;
+  flex-direction: column;
+  gap: var(--e-1);
+}
+
+.secaoCabecalho h2 {
+  font-size: 28px;
+  line-height: 34px;
+}
+
+/* ---------- Botões de texto (Voltar, Remover, Editar) ---------- */
+
+.botaoTexto {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: var(--alvo-minimo);
+  padding: 0 var(--e-1);
+  border: 0;
+  border-radius: var(--raio-pequeno);
+  background: transparent;
+  color: var(--rosa-profundo);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+
+.botaoTexto:hover {
+  background: var(--pessego);
+  text-decoration-thickness: 2px;
+}
+
+.botaoTexto:focus-visible,
+.botaoIcone:focus-visible,
+.modalidade:focus-within,
+.zona:focus-within,
+.apresentador:focus-within,
+.confirmacao:focus-within {
+  outline: none;
+  box-shadow: var(--foco);
+}
+
+.botaoIcone {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--alvo-minimo);
+  height: var(--alvo-minimo);
+  border: 1px solid var(--linha);
+  border-radius: var(--raio-pilula);
+  background: var(--branco);
+  color: var(--ameixa);
+  cursor: pointer;
+}
+
+.botaoIcone:hover:not(:disabled) {
+  background: var(--pessego);
+}
+
+.botaoIcone:disabled {
+  color: var(--borda-funcional);
+  background: var(--superficie-suave);
+  cursor: not-allowed;
+}
+
+/* ---------- Autores (C2) ---------- */
+
+.autores {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--e-2);
+}
+
+.autor {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: var(--e-2);
+  padding: var(--e-3);
+  background: var(--branco);
+  border: 1px solid var(--linha);
+  border-radius: var(--raio-card);
+  box-shadow: var(--sombra-card);
+  transition: border-color 120ms, background 120ms;
+}
+
+.autor[draggable="true"] {
+  cursor: grab;
+}
+
+.arrastando {
+  opacity: 0.55;
+}
+
+.alvoSoltar {
+  border: 2px dashed var(--rosa-profundo);
+  background: var(--pessego);
+}
+
+.numero {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--raio-pilula);
+  background: var(--ameixa);
+  color: var(--branco);
+  font-weight: 700;
+  font-size: 15px;
+  font-variant-numeric: tabular-nums;
+}
+
+.autorInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.autorNome {
+  font-size: 18px;
+  line-height: 26px;
+  overflow-wrap: anywhere;
+}
+
+.autorNome strong {
+  font-weight: 600;
+}
+
+.autorDetalhe {
+  color: var(--texto-apoio);
+  font-size: 15px;
+  line-height: 22px;
+}
+
+.autorRodape {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--e-1) var(--e-2);
+  margin-top: var(--e-1);
+}
+
+.autorAcoes {
+  display: flex;
+  align-items: center;
+  gap: var(--e-1);
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.apresentador {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--e-1);
+  min-height: var(--alvo-minimo);
+  padding: 0 var(--e-1);
+  border-radius: var(--raio-pequeno);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.apresentador input,
+.confirmacao input {
+  width: 20px;
+  height: 20px;
+  accent-color: var(--ameixa);
+  margin: 0;
+}
+
+.adicionar {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: var(--e-2);
+  align-items: start;
+}
+
+/* Alinha o botão com a caixa do campo (abaixo do rótulo). */
+.adicionarBotao {
+  padding-top: 26px;
+}
+
+@media (max-width: 720px) {
+  .autor {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+  .autorAcoes {
+    grid-column: 1 / -1;
+    justify-content: flex-start;
+  }
+  .adicionar {
+    grid-template-columns: 1fr;
+  }
+  .adicionarBotao {
+    padding-top: 0;
+  }
+}
+
+/* ---------- Dados ---------- */
+
+.grupo {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--e-1);
+}
+
+.grupo legend {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  padding: 0;
+}
+
+.modalidades {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--e-1);
+}
+
+.modalidade {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--e-1);
+  min-height: var(--altura-botao);
+  padding: 0 var(--e-3);
+  border: 1px solid var(--borda-funcional);
+  border-radius: var(--raio-pilula);
+  background: var(--branco);
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.modalidade:has(input:checked) {
+  background: var(--pessego);
+  border: 2px solid var(--ameixa);
+  font-weight: 600;
+}
+
+.modalidade input {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+}
+
+.contador {
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- Arquivo ---------- */
+
+.zona {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--e-1);
+  padding: var(--e-5) var(--e-3);
+  text-align: center;
+  border: 2px dashed var(--borda-funcional);
+  border-radius: var(--raio-card);
+  background: var(--branco);
+  cursor: pointer;
+}
+
+.zona:hover,
+.zonaAtiva {
+  background: var(--pessego);
+  border-color: var(--ameixa);
+}
+
+.zona input {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+}
+
+.zonaTitulo {
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.arquivo {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: var(--e-2);
+}
+
+.arquivoNome {
+  font-weight: 600;
+  font-size: 18px;
+  overflow-wrap: anywhere;
+}
+
+.confirmacao {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--e-1);
+  min-height: var(--alvo-minimo);
+  padding: var(--e-1);
+  border-radius: var(--raio-pequeno);
+  cursor: pointer;
+}
+
+.confirmacao input {
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+@media (max-width: 720px) {
+  .arquivo {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+  .arquivo > :last-child {
+    grid-column: 1 / -1;
+  }
+}
+
+/* ---------- Conferir (C3) ---------- */
+
+.resumoCard {
+  display: flex;
+  flex-direction: column;
+  gap: var(--e-1);
+}
+
+.resumoCabecalho {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--e-2);
+}
+
+.resumoCabecalho h3 {
+  font-family: var(--fonte-texto);
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 600;
+}
+
+.resumoLinhas {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.resumoLinhas strong {
+  font-weight: 700;
+}
+
+.truncado {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.envio {
+  display: flex;
+  flex-direction: column;
+  gap: var(--e-2);
+  align-items: flex-start;
+}
+
+.envio h2 {
+  font-family: var(--fonte-texto);
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 600;
+}
+
+.pendencias {
+  margin: 0;
+  padding-left: var(--e-3);
+}
+
+/* ---------- Rodapé ---------- */
+
+.rodape {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--e-2);
+  margin-top: var(--e-5);
+  padding-top: var(--e-3);
+  border-top: 1px solid var(--linha);
+}
+
+.rodapeAcoes {
+  display: flex;
+  gap: var(--e-2);
+  flex-wrap: wrap;
+}
+
+@media (max-width: 560px) {
+  .rodapeAcoes {
+    width: 100%;
+  }
+  .rodapeAcoes > * {
+    flex: 1 1 auto;
+  }
+}
+
+.bloqueio {
+  max-width: 720px;
+}
