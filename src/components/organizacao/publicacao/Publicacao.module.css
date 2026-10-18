@@ -1,0 +1,61 @@
+.grade {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+  gap: var(--e-4);
+  align-items: start;
+}
+
+@media (max-width: 1100px) {
+  .grade {
+    grid-template-columns: 1fr;
+  }
+}
+
+.sobrelinha.sobrelinha {
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.tituloCard {
+  font-family: var(--fonte-texto);
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 700;
+}
+
+.lista {
+  list-style: none;
+  margin: var(--e-2) 0 0;
+  padding: 0;
+}
+
+.lista li {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: var(--e-2) 0;
+  border-bottom: 1px solid var(--linha);
+}
+
+.lista li span:first-child {
+  font-size: 17px;
+}
+
+.vazio {
+  margin-top: var(--e-2);
+}
+
+.mais {
+  margin-top: var(--e-2);
+}
+
+.confirmacao {
+  padding: var(--e-2);
+  border-radius: var(--raio-campo);
+  background: var(--pessego);
+}
+
+/* Fora do fluxo da barra fixa ao pular para #certificados */
+.certificados {
+  scroll-margin-top: 112px;
+}
