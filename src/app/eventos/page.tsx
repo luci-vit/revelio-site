@@ -1,5 +1,13 @@
-import { EmConstrucao } from "@/components/EmConstrucao";
+import type { Metadata } from "next";
+import { Suspense } from "react";
+import { BuscaEventos } from "@/components/evento/BuscaEventos";
+
+export const metadata: Metadata = { title: "Eventos" };
 
 export default function Pagina() {
-  return <EmConstrucao codigo="B1" titulo="Eventos" descricao="Busca segmentada, abas de período, blocos de área e cards." />;
+  return (
+    <Suspense>
+      <BuscaEventos />
+    </Suspense>
+  );
 }
