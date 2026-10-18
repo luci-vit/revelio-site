@@ -1,5 +1,13 @@
-import { EmConstrucao } from "@/components/EmConstrucao";
+import type { Metadata } from "next";
+import { Suspense } from "react";
+import { Submissao } from "@/components/submissao/Submissao";
+
+export const metadata: Metadata = { title: "Novo trabalho" };
 
 export default function Pagina() {
-  return <EmConstrucao codigo="C2" titulo="Novo trabalho" descricao="Submissão em etapas: dados, autores, arquivo, conferir e enviar (C3)." />;
+  return (
+    <Suspense fallback={<div className="container pagina apoio">Carregando a submissão…</div>}>
+      <Submissao />
+    </Suspense>
+  );
 }
