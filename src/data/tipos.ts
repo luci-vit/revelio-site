@@ -196,6 +196,8 @@ export interface Parecer {
   comentarioAutores?: string;
   comentarioOrganizacao?: string;
   concluidoEm?: string; // ISO
+  /** Revisor declarou conflito de interesse (D3): o trabalho volta para a organização. */
+  conflito?: boolean;
 }
 
 export interface ConviteRevisao {
