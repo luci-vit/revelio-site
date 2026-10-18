@@ -7,6 +7,7 @@ import { Trilha } from "@/components/Basicos";
 import { Botao } from "@/components/Botao";
 import { Campo } from "@/components/Campo";
 import { Aviso } from "@/components/Estado";
+import { useToast } from "@/components/Toast";
 import { useEstado } from "@/data/estado";
 import { cupom as buscarCupom } from "@/data/eventos";
 import { eventoPorSlug, inscricaoNoEvento, proximoCodigo } from "@/data/selectors";
@@ -79,6 +80,7 @@ export function FormInscricao() {
 function Formulario({ evento, usuario, trilha }: { evento: Evento; usuario: Pessoa; trilha: ReactNode }) {
   const { estado, despachar } = useEstado();
   const router = useRouter();
+  const mostrarToast = useToast();
   const idCupom = useId();
 
   const gratuito = evento.categorias.every((c) => c.preco === 0);
@@ -193,6 +195,20 @@ function Formulario({ evento, usuario, trilha }: { evento: Evento; usuario: Pess
         lida: false,
       },
     });
+    // ?retorno=/revisoes (vindo do convite D1): volta para onde a pessoa estava.
+    const retorno = new URLSearchParams(window.location.search).get("retorno");
+    if (retorno && retorno.startsWith("/") && !retorno.startsWith("//")) {
+      mostrarToast({
+        mensagem: (
+          <>
+            Inscrição confirmada. Ingresso: <strong>{ingresso}</strong>
+          </>
+        ),
+        acao: { rotulo: "Ver crachá", href: `/eventos/${evento.slug}/inscricao/confirmada` },
+      });
+      router.push(retorno);
+      return;
+    }
     router.push(`/eventos/${evento.slug}/inscricao/confirmada`);
   }
 
