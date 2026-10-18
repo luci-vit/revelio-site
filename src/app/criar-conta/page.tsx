@@ -1,5 +1,13 @@
-import { EmConstrucao } from "@/components/EmConstrucao";
+import type { Metadata } from "next";
+import { Suspense } from "react";
+import { FormCriarConta } from "@/components/conta/FormCriarConta";
+
+export const metadata: Metadata = { title: "Criar conta" };
 
 export default function Pagina() {
-  return <EmConstrucao codigo="A2" titulo="Criar conta" descricao="Cadastro sem escolher papel." />;
+  return (
+    <Suspense>
+      <FormCriarConta />
+    </Suspense>
+  );
 }

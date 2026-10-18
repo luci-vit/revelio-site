@@ -1,0 +1,165 @@
+.heroi {
+  display: grid;
+  grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr);
+  gap: var(--e-5);
+  align-items: center;
+}
+
+.heroiTextos {
+  display: flex;
+  flex-direction: column;
+  gap: var(--e-3);
+}
+
+.titulo {
+  font-size: 52px;
+  line-height: 60px;
+}
+
+.subtitulo {
+  color: var(--texto-apoio);
+  font-size: 18px;
+  line-height: 28px;
+}
+
+.busca {
+  margin-top: var(--e-4);
+}
+
+/* Passos + chamada para criar conta */
+.passos {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 1fr);
+  gap: var(--e-3);
+  margin-top: var(--e-5);
+  scroll-margin-top: calc(var(--altura-nav) + var(--e-3));
+}
+
+.listaPassos {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--e-3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.passo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--e-1);
+}
+
+.numero {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  margin-bottom: var(--e-2);
+  border-radius: 50%;
+  background: var(--ameixa);
+  color: var(--branco);
+  font-weight: 700;
+  font-size: 15px;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Abaixo de 22px o título usa Inter */
+.passoTitulo {
+  font-family: var(--fonte-texto);
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 700;
+}
+
+.chamada {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--e-2);
+}
+
+/* Para organizadores */
+.organizadores {
+  display: flex;
+  flex-direction: column;
+  gap: var(--e-3);
+  margin-top: var(--e-6);
+  padding: var(--e-4);
+  scroll-margin-top: calc(var(--altura-nav) + var(--e-3));
+}
+
+.orgCabecalho {
+  display: flex;
+  flex-direction: column;
+  gap: var(--e-1);
+  max-width: 720px;
+}
+
+.orgLista {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--e-3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.orgItem {
+  display: flex;
+  gap: var(--e-2);
+  align-items: flex-start;
+}
+
+.orgIcone {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--pessego);
+  color: var(--ameixa);
+}
+
+.orgTitulo {
+  font-family: var(--fonte-texto);
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 700;
+}
+
+@media (max-width: 1100px) {
+  .passos {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 960px) {
+  .heroi {
+    grid-template-columns: 1fr;
+    gap: var(--e-4);
+  }
+  .titulo {
+    font-size: 40px;
+    line-height: 46px;
+  }
+  .orgLista {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  .titulo {
+    font-size: 32px;
+    line-height: 38px;
+  }
+  .listaPassos {
+    grid-template-columns: 1fr;
+  }
+  .organizadores {
+    padding: var(--e-3);
+  }
+}

@@ -1,5 +1,13 @@
-import { EmConstrucao } from "@/components/EmConstrucao";
+import type { Metadata } from "next";
+import { Suspense } from "react";
+import { ProximoPasso } from "@/components/conta/ProximoPasso";
+
+export const metadata: Metadata = { title: "Conta criada" };
 
 export default function Pagina() {
-  return <EmConstrucao codigo="A3" titulo="Próximo passo" descricao="Conta criada: o que fazer agora." />;
+  return (
+    <Suspense>
+      <ProximoPasso />
+    </Suspense>
+  );
 }
