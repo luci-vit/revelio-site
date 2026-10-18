@@ -1,0 +1,139 @@
+.busca {
+  display: flex;
+  align-items: stretch;
+  padding: 8px;
+  border-radius: var(--raio-pilula);
+  border: 1px solid var(--borda-funcional);
+}
+
+.segmento {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 8px 24px;
+  border-radius: var(--raio-pilula);
+}
+
+.segmento + .segmento::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 12px;
+  bottom: 12px;
+  width: 1px;
+  background: var(--linha);
+}
+
+.segmento:hover,
+.segmento:focus-within {
+  background: rgba(255, 230, 220, 0.6);
+}
+
+.segmento:focus-within {
+  box-shadow: var(--foco);
+}
+
+.icone {
+  display: inline-flex;
+  color: var(--ameixa);
+  flex-shrink: 0;
+}
+
+.textos {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  flex: 1;
+}
+
+.rotulo {
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--texto-apoio);
+}
+
+.valor {
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--ameixa);
+  font: inherit;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 500;
+  text-overflow: ellipsis;
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+}
+
+input.valor {
+  cursor: text;
+}
+
+.valor::placeholder {
+  color: var(--ameixa);
+  opacity: 1;
+}
+
+.valor:focus,
+.valor:focus-visible {
+  outline: none;
+  box-shadow: none;
+}
+
+.botao {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 28px;
+  min-height: 56px;
+  border: 0;
+  border-radius: var(--raio-pilula);
+  background: var(--por-do-sol);
+  color: var(--ameixa);
+  font-size: 17px;
+  font-weight: 700;
+  box-shadow: var(--sombra-primario);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.botao:hover {
+  background: var(--por-do-sol-hover);
+}
+
+.botao:focus-visible {
+  border-radius: var(--raio-pilula);
+}
+
+@media (max-width: 960px) {
+  .busca {
+    flex-direction: column;
+    border-radius: var(--raio-card);
+    gap: 4px;
+  }
+  .segmento {
+    border-radius: var(--raio-campo);
+    padding: 10px 16px;
+  }
+  .segmento + .segmento::before {
+    left: 16px;
+    right: 16px;
+    top: 0;
+    bottom: auto;
+    width: auto;
+    height: 1px;
+  }
+  .botao {
+    justify-content: center;
+    margin-top: 4px;
+  }
+}

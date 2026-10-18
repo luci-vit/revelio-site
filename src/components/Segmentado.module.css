@@ -1,0 +1,39 @@
+.grupo {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 5px;
+  border: 1px solid var(--borda-funcional);
+  border-radius: var(--raio-pilula);
+  background: var(--branco);
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.item {
+  min-height: 44px;
+  padding: 0 20px;
+  border: 0;
+  border-radius: var(--raio-pilula);
+  background: transparent;
+  color: var(--ameixa);
+  font-size: 16px;
+  font-weight: 500;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.item:hover {
+  background: var(--pessego);
+}
+
+.item:focus-visible {
+  border-radius: var(--raio-pilula);
+}
+
+.ativo,
+.ativo:hover {
+  background: var(--ameixa);
+  color: var(--branco);
+  font-weight: 600;
+}

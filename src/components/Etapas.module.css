@@ -1,0 +1,112 @@
+.etapas {
+  display: grid;
+  grid-auto-columns: 1fr;
+  grid-auto-flow: column;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.etapa {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 4px;
+  min-width: 0;
+}
+
+.marcador {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+
+.circulo {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid var(--borda-funcional);
+  background: var(--branco);
+  color: var(--ameixa);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+/* linha que liga ao próximo passo */
+.trilho {
+  position: absolute;
+  top: 50%;
+  left: calc(50% + 28px);
+  right: calc(-50% + 28px);
+  height: 3px;
+  border-radius: 2px;
+  background: var(--linha);
+  transform: translateY(-50%);
+}
+
+.rotulo {
+  font-weight: 600;
+  color: var(--ameixa);
+}
+
+.situacao {
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--texto-apoio);
+}
+
+.concluida .circulo {
+  background: var(--sucesso);
+  border-color: var(--sucesso);
+  color: var(--branco);
+}
+
+.concluida .trilho {
+  background: var(--sucesso);
+}
+
+.concluida .situacao {
+  color: var(--sucesso);
+  font-weight: 600;
+}
+
+.atual .circulo {
+  background: var(--por-do-sol);
+  border-color: transparent;
+  box-shadow: 0 0 0 5px var(--pessego);
+}
+
+.atual .trilho {
+  background: var(--por-do-sol);
+}
+
+.atual .situacao {
+  color: var(--rosa-profundo);
+  font-weight: 600;
+}
+
+@media (max-width: 720px) {
+  .rotulo {
+    font-size: 13px;
+    line-height: 18px;
+  }
+  .situacao {
+    font-size: 12px;
+  }
+  .circulo {
+    width: 32px;
+    height: 32px;
+  }
+  .trilho {
+    left: calc(50% + 22px);
+    right: calc(-50% + 22px);
+  }
+}

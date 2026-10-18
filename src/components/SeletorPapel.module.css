@@ -1,0 +1,136 @@
+.gatilho,
+.painel {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 70;
+}
+
+.gatilho {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 0 16px;
+  border: 1px solid var(--vidro-escuro-borda);
+  border-radius: var(--raio-pilula);
+  background: var(--vidro-escuro-fundo);
+  -webkit-backdrop-filter: var(--vidro-escuro-desfoque);
+  backdrop-filter: var(--vidro-escuro-desfoque);
+  color: var(--branco);
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: var(--sombra-flutuante);
+}
+
+.gatilho:focus-visible {
+  border-radius: var(--raio-pilula);
+}
+
+.painel {
+  width: 260px;
+  padding: 12px;
+  border-radius: var(--raio-card);
+  background: rgba(43, 22, 49, 0.92);
+  -webkit-backdrop-filter: var(--vidro-escuro-desfoque);
+  backdrop-filter: var(--vidro-escuro-desfoque);
+  border: 1px solid var(--vidro-escuro-borda);
+  color: var(--branco);
+  box-shadow: var(--sombra-flutuante);
+}
+
+.topo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 4px 8px 8px;
+}
+
+.titulo {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.8;
+}
+
+.fechar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--branco);
+  cursor: pointer;
+}
+
+.fechar:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.lista {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.opcao {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  min-height: 48px;
+  padding: 6px 12px;
+  border: 0;
+  border-radius: 12px;
+  background: transparent;
+  color: var(--branco);
+  text-align: left;
+  cursor: pointer;
+}
+
+.opcao:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.ativa,
+.ativa:hover {
+  background: var(--por-do-sol);
+  color: var(--ameixa);
+}
+
+.opcaoPapel {
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.opcaoPessoa {
+  font-size: 13px;
+  opacity: 0.85;
+}
+
+.reiniciar {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  min-height: 44px;
+  margin-top: 8px;
+  padding: 0 12px;
+  border: 1px solid var(--vidro-escuro-borda);
+  border-radius: var(--raio-pilula);
+  background: transparent;
+  color: var(--branco);
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.reiniciar:hover {
+  background: rgba(255, 255, 255, 0.1);
+}

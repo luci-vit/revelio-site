@@ -1,0 +1,44 @@
+.lista {
+  display: flex;
+  gap: var(--e-4);
+  box-shadow: inset 0 -1px 0 var(--linha);
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.aba {
+  position: relative;
+  min-height: 48px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--texto-apoio);
+  font-size: 18px;
+  font-weight: 500;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.aba:hover {
+  color: var(--ameixa);
+}
+
+.ativa {
+  color: var(--ameixa);
+  font-weight: 700;
+}
+
+.ativa::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 3px;
+  border-radius: 3px 3px 0 0;
+  background: var(--ameixa);
+}
+
+.painel {
+  padding-top: var(--e-3);
+}

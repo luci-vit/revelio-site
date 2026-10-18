@@ -1,0 +1,122 @@
+.estado {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  min-height: 32px;
+  border-radius: var(--raio-pilula);
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.estado svg {
+  flex-shrink: 0;
+}
+
+.grande {
+  font-size: 16px;
+  padding: 6px 16px;
+  min-height: 40px;
+}
+
+.sucesso {
+  color: var(--sucesso);
+  background: var(--sucesso-fundo);
+}
+
+.atencao {
+  color: var(--atencao);
+  background: var(--atencao-fundo);
+}
+
+.erro {
+  color: var(--erro);
+  background: var(--erro-fundo);
+}
+
+.info {
+  color: var(--info);
+  background: var(--info-fundo);
+}
+
+.neutro {
+  color: var(--texto-apoio);
+  background: var(--neutro-fundo);
+}
+
+.etiqueta {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  border-radius: var(--raio-pilula);
+  background: var(--neutro-fundo);
+  color: var(--ameixa);
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* Faixa de aviso */
+.aviso {
+  display: flex;
+  align-items: center;
+  gap: var(--e-2);
+  padding: var(--e-2) var(--e-3);
+  border-radius: var(--raio-card);
+  border: 1px solid transparent;
+}
+
+.avisoIcone {
+  display: inline-flex;
+  flex-shrink: 0;
+}
+
+.avisoTexto {
+  flex: 1;
+  min-width: 0;
+}
+
+.avisoAcao {
+  flex-shrink: 0;
+}
+
+@media (max-width: 720px) {
+  .aviso {
+    flex-wrap: wrap;
+  }
+}
+
+.aviso-info {
+  background: var(--superficie-suave);
+  border-color: var(--linha);
+  color: var(--ameixa);
+}
+
+.aviso-pessego {
+  background: var(--pessego);
+  color: var(--ameixa);
+}
+
+.aviso-sucesso {
+  background: var(--sucesso-fundo);
+  color: var(--sucesso);
+}
+
+.aviso-atencao {
+  background: var(--atencao-fundo);
+  color: var(--atencao);
+}
+
+.aviso-erro {
+  background: var(--erro-fundo);
+  color: var(--erro);
+}
+
+.aviso-neutro {
+  background: var(--neutro-fundo);
+  color: var(--texto-apoio);
+}

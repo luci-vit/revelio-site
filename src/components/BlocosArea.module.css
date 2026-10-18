@@ -1,0 +1,49 @@
+.blocos {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.bloco {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  width: 140px;
+  min-height: 104px;
+  padding: 16px;
+  border: 1px solid var(--borda-funcional);
+  border-radius: 16px;
+  background: var(--branco);
+  color: var(--ameixa);
+  text-align: left;
+  cursor: pointer;
+}
+
+.bloco:hover {
+  background: var(--pessego);
+}
+
+.bloco:focus-visible {
+  border-radius: 16px;
+}
+
+.nome {
+  font-size: 15px;
+  line-height: 20px;
+  font-weight: 600;
+}
+
+.ativo,
+.ativo:hover {
+  background: var(--ameixa);
+  border-color: var(--ameixa);
+  color: var(--branco);
+}
+
+@media (max-width: 720px) {
+  .bloco {
+    width: calc(50% - 6px);
+  }
+}

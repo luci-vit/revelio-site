@@ -1,0 +1,154 @@
+.painel {
+  position: absolute;
+  top: calc(100% + 12px);
+  right: 0;
+  z-index: 50;
+  width: min(520px, calc(100vw - 32px));
+  max-height: min(640px, calc(100vh - 120px));
+  overflow-y: auto;
+  border-radius: 24px;
+  --vidro-fundo: rgba(255, 255, 255, 0.9);
+}
+
+.topo {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--e-2);
+  padding: 16px 24px;
+  background: rgba(255, 252, 250, 0.96);
+  border-bottom: 1px solid var(--linha);
+}
+
+.titulo {
+  font-family: var(--fonte-titulo);
+  font-weight: 800;
+  font-size: 22px;
+  line-height: 28px;
+}
+
+.marcarTodas {
+  min-height: 44px;
+  padding: 0 8px;
+  border: 0;
+  background: transparent;
+  color: var(--rosa-profundo);
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.marcarTodas:hover {
+  text-decoration: underline;
+}
+
+.vazio {
+  padding: 24px;
+  color: var(--texto-apoio);
+}
+
+.lista {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.item {
+  position: relative;
+  display: flex;
+  gap: 14px;
+  padding: 18px 24px 18px 40px;
+  border-bottom: 1px solid var(--linha);
+}
+
+.item:last-child {
+  border-bottom: 0;
+}
+
+.naoLida {
+  background: rgba(255, 230, 220, 0.75);
+}
+
+.ponto {
+  position: absolute;
+  left: 18px;
+  top: 28px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: transparent;
+}
+
+.naoLida .ponto {
+  background: var(--rosa-profundo);
+}
+
+.icone {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  flex-shrink: 0;
+}
+
+.iconeInfo {
+  background: var(--info-fundo);
+  color: var(--ameixa);
+}
+
+.iconeAtencao {
+  background: var(--atencao-fundo);
+  color: var(--atencao);
+}
+
+.iconeSucesso {
+  background: var(--sucesso-fundo);
+  color: var(--sucesso);
+}
+
+.iconeNeutro {
+  background: var(--neutro-fundo);
+  color: var(--texto-apoio);
+}
+
+.textos {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.itemTitulo {
+  font-weight: 500;
+}
+
+.naoLida .itemTitulo {
+  font-weight: 700;
+}
+
+.descricao {
+  color: var(--texto-apoio);
+  font-size: 15px;
+  line-height: 22px;
+}
+
+.meta {
+  margin-top: 4px;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--texto-apoio);
+}
+
+.meta a {
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.meta a:hover {
+  text-decoration: underline;
+}
