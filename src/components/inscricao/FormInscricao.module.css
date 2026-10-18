@@ -1,0 +1,194 @@
+.estreito {
+  max-width: 760px;
+}
+
+.duasColunas {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--e-2);
+}
+
+@media (max-width: 640px) {
+  .duasColunas {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Dados que vêm da conta: tracejado e fundo suave, não editáveis aqui. */
+.somenteLeitura {
+  border-style: dashed;
+  background: var(--superficie-suave);
+  color: var(--texto-apoio);
+  cursor: default;
+}
+
+.grupo {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--e-1);
+  min-width: 0;
+}
+
+.legenda {
+  padding: 0;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 600;
+  margin-bottom: var(--e-0);
+}
+
+.opcoes {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: var(--e-3);
+  row-gap: 0;
+}
+
+.opcao {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: var(--alvo-minimo);
+  cursor: pointer;
+  font-size: 17px;
+}
+
+/* Radio no estilo da identidade: anel Ameixa com miolo cheio. */
+.radio {
+  appearance: none;
+  -webkit-appearance: none;
+  flex: none;
+  width: 22px;
+  height: 22px;
+  margin: 0;
+  border: 1.5px solid var(--ameixa);
+  border-radius: 50%;
+  background: var(--branco);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+
+.radio::after {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--ameixa);
+  transform: scale(0);
+  transition: transform 120ms;
+}
+
+.radio:checked {
+  border-width: 2px;
+}
+
+.radio:checked::after {
+  transform: scale(1);
+}
+
+.radio:focus-visible {
+  border-radius: 50%;
+  box-shadow: var(--foco);
+}
+
+.linhaCupom {
+  display: flex;
+  gap: var(--e-2);
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.entradaCupom {
+  width: 100%;
+  max-width: 390px;
+  flex: 1 1 200px;
+  text-transform: uppercase;
+}
+
+.entradaCupom::placeholder {
+  text-transform: none;
+}
+
+.cupomOk {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  font-size: 15px;
+  line-height: 20px;
+  font-weight: 600;
+  color: var(--sucesso);
+}
+
+.remover {
+  min-height: var(--alvo-minimo);
+  padding: 0 var(--e-1);
+  border: 0;
+  background: none;
+  color: var(--rosa-profundo);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+
+.lateral {
+  position: sticky;
+  top: calc(var(--altura-nav) + var(--e-3));
+}
+
+@media (max-width: 960px) {
+  .lateral {
+    position: static;
+  }
+}
+
+.resumo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--e-0);
+}
+
+.resumoTitulo {
+  font-family: var(--fonte-texto);
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 700;
+  margin-bottom: var(--e-1);
+}
+
+.total {
+  font-weight: 700;
+  margin-top: var(--e-0);
+}
+
+.opcoesPagamento {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: var(--e-2);
+}
+
+.opcaoPagamento {
+  display: flex;
+  align-items: center;
+  gap: var(--e-2);
+  min-height: 72px;
+  padding: var(--e-2);
+  border: 1px solid var(--borda-funcional);
+  border-radius: var(--raio-campo-grande);
+  background: var(--branco);
+  cursor: pointer;
+}
+
+.opcaoPagamento:hover {
+  background: var(--pessego);
+}
+
+.opcaoMarcada {
+  border: 2px solid var(--ameixa);
+  background: var(--pessego);
+}

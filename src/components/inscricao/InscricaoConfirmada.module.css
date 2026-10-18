@@ -1,0 +1,35 @@
+.estreito {
+  max-width: 760px;
+}
+
+.grade {
+  display: grid;
+  grid-template-columns: minmax(0, 630px) minmax(0, 1fr);
+  gap: var(--e-8);
+  align-items: start;
+}
+
+@media (max-width: 1080px) {
+  .grade {
+    grid-template-columns: 1fr;
+    gap: var(--e-4);
+  }
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--alvo-minimo);
+  padding: 0 var(--e-1);
+  font-weight: 600;
+  color: var(--ameixa);
+  text-decoration: underline;
+}
+
+.link:hover {
+  color: var(--rosa-profundo);
+}
+
+.proximo {
+  padding: var(--e-3);
+}

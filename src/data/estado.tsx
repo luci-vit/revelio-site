@@ -66,6 +66,8 @@ export type Acao =
       cupom?: string;
       valorPago: number;
       ingresso: string;
+      modalidade?: Inscricao["modalidade"];
+      nomeCracha?: string;
     }
   | { tipo: "salvarTrabalho"; trabalho: Trabalho }
   | { tipo: "enviarTrabalho"; codigo: string }
@@ -118,6 +120,8 @@ function reducer(estado: Estado, acao: Acao): Estado {
         ingresso: acao.ingresso,
         cupom: acao.cupom,
         valorPago: acao.valorPago,
+        modalidade: acao.modalidade,
+        nomeCracha: acao.nomeCracha,
         situacao: "inscrita",
         data: new Date().toISOString(),
       };

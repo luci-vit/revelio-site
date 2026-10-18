@@ -1,5 +1,8 @@
-import { EmConstrucao } from "@/components/EmConstrucao";
+import type { Metadata } from "next";
+import { FormInscricao } from "@/components/inscricao/FormInscricao";
+
+export const metadata: Metadata = { title: "Inscrição no evento" };
 
 export default function Pagina() {
-  return <EmConstrucao codigo="B3" titulo="Inscrição" descricao="Categoria, cupom de divulgador e resumo do valor." />;
+  return <FormInscricao />;
 }
