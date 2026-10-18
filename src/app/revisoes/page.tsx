@@ -1,5 +1,8 @@
-import { EmConstrucao } from "@/components/EmConstrucao";
+import type { Metadata } from "next";
+import { TelaFila } from "@/components/revisao/TelaFila";
+
+export const metadata: Metadata = { title: "Revisões" };
 
 export default function Pagina() {
-  return <EmConstrucao codigo="D2" titulo="Revisões" descricao="Fila de revisões atribuídas." />;
+  return <TelaFila />;
 }
