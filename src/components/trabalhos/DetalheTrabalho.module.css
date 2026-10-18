@@ -1,0 +1,154 @@
+.tituloLinha {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--e-1) var(--e-2);
+}
+
+.tituloCaixa {
+  font-family: var(--fonte-texto);
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 700;
+}
+
+.notas {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: var(--e-1);
+  margin: 0;
+}
+
+.notas > div {
+  padding: var(--e-1) 12px;
+  border-radius: var(--raio-campo);
+  background: var(--superficie-suave);
+}
+
+.notas dt {
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--texto-apoio);
+}
+
+.notas dd {
+  margin: 0;
+  font-weight: 700;
+}
+
+.apresentacao {
+  display: flex;
+  align-items: center;
+  gap: var(--e-1);
+  font-weight: 600;
+}
+
+.arquivoLinha {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* ---- Envio da versão ajustada ---- */
+
+.soltar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--e-1);
+  min-height: 96px;
+  padding: var(--e-3) var(--e-2);
+  border: 1.5px dashed var(--borda-funcional);
+  border-radius: var(--raio-campo-grande);
+  background: var(--branco);
+  text-align: center;
+}
+
+.soltarAtivo {
+  border-color: var(--ameixa);
+  background: var(--pessego);
+}
+
+.soltarErro {
+  border: 2px dashed var(--erro);
+}
+
+.soltar:focus-within {
+  box-shadow: var(--foco);
+}
+
+.escolher {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--alvo-minimo);
+  color: var(--ameixa);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+
+.escolher:hover {
+  color: var(--rosa-profundo);
+  text-decoration-thickness: 2px;
+}
+
+/* Entrada de arquivo visualmente oculta, mas focável pelo teclado */
+.entradaArquivo {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  overflow: hidden;
+}
+
+.exemplo {
+  align-self: flex-start;
+  min-height: var(--alvo-minimo);
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--rosa-profundo);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+
+.arquivo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px var(--e-2);
+  border: 1px solid var(--linha);
+  border-radius: var(--raio-campo-grande);
+  background: var(--superficie-suave);
+}
+
+.arquivo > svg {
+  flex-shrink: 0;
+}
+
+.arquivoTexto {
+  flex: 1;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.remover {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--alvo-minimo);
+  height: var(--alvo-minimo);
+  flex-shrink: 0;
+  border: 0;
+  border-radius: var(--raio-pilula);
+  background: transparent;
+  cursor: pointer;
+}
+
+.remover:hover {
+  background: var(--pessego);
+}
