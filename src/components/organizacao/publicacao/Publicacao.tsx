@@ -10,7 +10,7 @@ import { useEstado } from "@/data/estado";
 import { eventoPorSlug, trabalhosSubmetidos } from "@/data/selectors";
 import type { Decisao, Notificacao } from "@/data/tipos";
 import { data } from "@/lib/formato";
-import { ROTULO_DECISAO } from "../comum";
+import { ROTULO_DECISAO } from "../rotulos";
 import styles from "./Publicacao.module.css";
 
 /**

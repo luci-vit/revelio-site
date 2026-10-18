@@ -11,7 +11,7 @@ import { useEstado } from "@/data/estado";
 import { eventoPorSlug, pareceresDoTrabalho, trabalhosSubmetidos } from "@/data/selectors";
 import type { Decisao, Parecer, Trabalho } from "@/data/tipos";
 import { data, prazo } from "@/lib/formato";
-import { nomePessoa, ROTULO_DECISAO, ROTULO_RECOMENDACAO } from "../comum";
+import { nomePessoa, ROTULO_DECISAO, ROTULO_RECOMENDACAO } from "../rotulos";
 import styles from "./Selecao.module.css";
 
 const DECISOES: Decisao[] = ["aprovado", "aprovado-com-ajustes", "rejeitado"];

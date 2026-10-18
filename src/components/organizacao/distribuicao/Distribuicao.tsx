@@ -11,7 +11,7 @@ import { pessoa } from "@/data/pessoas";
 import { convitesDoEvento, eventoPorSlug, trabalhosSubmetidos } from "@/data/selectors";
 import type { Trabalho } from "@/data/tipos";
 import { prazo } from "@/lib/formato";
-import { nomePessoa, papelDeAutoria } from "../comum";
+import { nomePessoa, papelDeAutoria } from "../rotulos";
 import styles from "./Distribuicao.module.css";
 
 function vagas(t: Trabalho) {
