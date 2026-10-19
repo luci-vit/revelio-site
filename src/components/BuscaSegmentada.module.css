@@ -3,7 +3,14 @@
   align-items: stretch;
   padding: 8px;
   border-radius: var(--raio-pilula);
-  border: 1px solid var(--borda-funcional);
+  transition:
+    box-shadow 220ms cubic-bezier(0.2, 0, 0, 1),
+    transform 220ms cubic-bezier(0.2, 0, 0, 1);
+}
+
+.busca:hover {
+  box-shadow: 0 16px 38px rgba(43, 22, 49, 0.11), 0 4px 12px rgba(43, 22, 49, 0.04), inset 0 1px 0 rgba(255, 255, 255, 1);
+  transform: translateY(-1px);
 }
 
 .segmento {

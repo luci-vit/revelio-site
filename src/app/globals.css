@@ -59,12 +59,12 @@
   --altura-botao-pequeno: 44px;
   --alvo-minimo: 44px;
 
-  /* Vidro claro: branco 58%, desfoque 16px, saturação 150%, borda branca 75% */
+  /* Vidro claro (docs/identidade/vidro.png): branco a 58%, desfoque 12px, saturação 160%, borda branca 75% */
   --vidro-fundo: rgba(255, 255, 255, 0.58);
-  --vidro-fundo-forte: rgba(255, 255, 255, 0.86);
+  --vidro-fundo-forte: rgba(255, 255, 255, 0.82);
   --vidro-borda: rgba(255, 255, 255, 0.75);
-  --vidro-desfoque: blur(16px) saturate(150%);
-  --vidro-sombra: 0 10px 30px rgba(43, 22, 49, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  --vidro-desfoque: blur(12px) saturate(160%);
+  --vidro-sombra: 0 10px 30px rgba(43, 22, 49, 0.08), 0 2px 6px rgba(43, 22, 49, 0.03), inset 0 1px 0 rgba(255, 255, 255, 0.95);
 
   /* Vidro escuro: ameixa 72%, desfoque 14px, borda branca 18% */
   --vidro-escuro-fundo: rgba(43, 22, 49, 0.72);
@@ -129,7 +129,7 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* Brilho de pôr do sol ao fundo (atrás do vidro) */
+/* Brilho de pôr do sol ao fundo (atrás do vidro, como na identidade 3.6) */
 body::before {
   content: "";
   position: fixed;
@@ -137,9 +137,11 @@ body::before {
   z-index: -1;
   pointer-events: none;
   background:
-    radial-gradient(60% 50% at 92% -10%, rgba(255, 170, 120, 0.35), transparent 70%),
-    radial-gradient(50% 45% at 105% 35%, rgba(255, 120, 170, 0.22), transparent 70%),
-    radial-gradient(40% 40% at -5% 0%, rgba(255, 200, 170, 0.25), transparent 70%);
+    radial-gradient(75% 55% at 85% 0%, rgba(255, 138, 92, 0.40), transparent 70%),
+    radial-gradient(65% 50% at 95% 35%, rgba(255, 92, 138, 0.32), transparent 70%),
+    radial-gradient(60% 45% at 10% 5%, rgba(255, 180, 140, 0.38), transparent 70%),
+    radial-gradient(70% 45% at 50% 15%, rgba(255, 140, 160, 0.28), transparent 70%),
+    radial-gradient(50% 50% at 30% 45%, rgba(255, 180, 140, 0.20), transparent 70%);
 }
 
 h1,

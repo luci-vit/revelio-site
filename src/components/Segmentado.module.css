@@ -3,11 +3,19 @@
   align-items: center;
   gap: 4px;
   padding: 5px;
-  border: 1px solid var(--borda-funcional);
+  border: 1px solid var(--vidro-borda);
   border-radius: var(--raio-pilula);
-  background: var(--branco);
+  background: var(--vidro-fundo);
+  -webkit-backdrop-filter: var(--vidro-desfoque);
+  backdrop-filter: var(--vidro-desfoque);
+  box-shadow: var(--vidro-sombra);
   max-width: 100%;
   overflow-x: auto;
+  transition: box-shadow 200ms ease, transform 200ms ease;
+}
+
+.grupo:hover {
+  box-shadow: 0 12px 30px rgba(43, 22, 49, 0.1), inset 0 1px 0 rgba(255, 255, 255, 1);
 }
 
 .item {
