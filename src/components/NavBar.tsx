@@ -18,6 +18,66 @@ interface ItemMenu {
   href: string;
   /** Prefixos de rota que deixam o item ativo. */
   ativoEm: string[];
+  /** Seção da página inicial que deixa o item ativo quando visível. */
+  secao?: string;
+}
+
+const SECOES_INICIO = ["como-funciona", "para-organizadores"];
+
+/**
+ * Seção da página inicial em que a pessoa está (para o menu do visitante).
+ * null = topo da página (item “Eventos”). Um clique no menu fixa a seção
+ * escolhida até a pessoa rolar por conta própria — a página é curta e nem
+ * sempre consegue levar a seção até o topo.
+ */
+function useSecaoInicio(ativo: boolean) {
+  const [secao, setSecao] = useState<string | null>(null);
+  const fixada = useRef<string | null>(null);
+
+  useEffect(() => {
+    if (!ativo) return;
+    function atualizar() {
+      if (fixada.current) {
+        setSecao(fixada.current);
+        return;
+      }
+      let atual: string | null = null;
+      if (window.scrollY > 40) {
+        for (const id of SECOES_INICIO) {
+          const el = document.getElementById(id);
+          if (el && el.getBoundingClientRect().top <= window.innerHeight * 0.5) atual = id;
+        }
+      }
+      setSecao(atual);
+    }
+    function soltar() {
+      fixada.current = null;
+    }
+    // Chegou com /#secao no endereço: começa nela.
+    const hash = window.location.hash.slice(1);
+    if (SECOES_INICIO.includes(hash)) fixada.current = hash;
+    const quadro = requestAnimationFrame(atualizar);
+    window.addEventListener("scroll", atualizar, { passive: true });
+    window.addEventListener("resize", atualizar);
+    window.addEventListener("wheel", soltar, { passive: true });
+    window.addEventListener("touchmove", soltar, { passive: true });
+    window.addEventListener("keydown", soltar);
+    return () => {
+      cancelAnimationFrame(quadro);
+      window.removeEventListener("scroll", atualizar);
+      window.removeEventListener("resize", atualizar);
+      window.removeEventListener("wheel", soltar);
+      window.removeEventListener("touchmove", soltar);
+      window.removeEventListener("keydown", soltar);
+    };
+  }, [ativo]);
+
+  function fixar(id: string | null) {
+    fixada.current = id;
+    setSecao(id);
+  }
+
+  return [ativo ? secao : null, fixar] as const;
 }
 
 /**
@@ -58,6 +118,8 @@ export function NavBar() {
   }, [avisosAbertos]);
 
   const logado = papel !== "visitante" && usuario;
+  const noInicio = !logado && caminho === "/";
+  const [secaoInicio, fixarSecaoInicio] = useSecaoInicio(noInicio);
 
   const itens: ItemMenu[] = logado
     ? [
@@ -73,8 +135,8 @@ export function NavBar() {
       ]
     : [
         { rotulo: "Eventos", href: "/eventos", ativoEm: ["/eventos", "/"] },
-        { rotulo: "Como funciona", href: "/#como-funciona", ativoEm: [] },
-        { rotulo: "Para organizadores", href: "/#para-organizadores", ativoEm: [] },
+        { rotulo: "Como funciona", href: "/#como-funciona", ativoEm: [], secao: "como-funciona" },
+        { rotulo: "Para organizadores", href: "/#para-organizadores", ativoEm: [], secao: "para-organizadores" },
       ];
 
   // Subpáginas de evento que pertencem a outra seção do menu (como no protótipo).
@@ -88,6 +150,7 @@ export function NavBar() {
 
   function ativo(item: ItemMenu) {
     if (secaoDoEvento) return item.href === secaoDoEvento;
+    if (noInicio) return secaoInicio ? item.secao === secaoInicio : item.href === "/eventos";
     return item.ativoEm.some((p) => (p === "/" ? caminho === "/" : caminho === p || caminho.startsWith(p + "/")));
   }
 
@@ -102,7 +165,16 @@ export function NavBar() {
           <ul className={`${styles.pilula} vidro`}>
             {itens.map((it) => (
               <li key={it.rotulo}>
-                <Link href={it.href} className={`${styles.item} ${ativo(it) ? styles.ativo : ""}`} aria-current={ativo(it) ? "page" : undefined}>
+                <Link
+                  href={it.href}
+                  className={`${styles.item} ${ativo(it) ? styles.ativo : ""}`}
+                  aria-current={ativo(it) ? "page" : undefined}
+                  onClick={() => {
+                    fixarSecaoInicio(it.secao ?? null);
+                    // Mesmo com o #secao já no endereço, rola até a seção.
+                    if (it.secao && caminho === "/") document.getElementById(it.secao)?.scrollIntoView({ behavior: "smooth" });
+                  }}
+                >
                   {it.rotulo}
                 </Link>
               </li>

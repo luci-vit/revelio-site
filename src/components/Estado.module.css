@@ -4,7 +4,8 @@
   gap: 6px;
   padding: 4px 12px;
   min-height: 32px;
-  border-radius: var(--raio-pilula);
+  /* 16px = pílula em uma linha; em duas linhas vira retângulo arredondado */
+  border-radius: 16px;
   font-size: 14px;
   line-height: 20px;
   font-weight: 600;

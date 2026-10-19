@@ -40,7 +40,8 @@ export function SituacaoSubmissoes({
     );
   }
   const faltam = f.diasEntre(hojeDoPapel(papel), p.submissoes);
-  if (faltam <= 3) {
+  // Atenção só na reta final (B1: “faltam 2 dias”).
+  if (faltam <= 2) {
     return (
       <Estado tom="atencao">
         Submissões até {f.prazoCurto(p.submissoes)} · faltam {faltam} {faltam === 1 ? "dia" : "dias"}

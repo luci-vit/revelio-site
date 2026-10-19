@@ -114,6 +114,11 @@ html {
   -webkit-text-size-adjust: 100%;
 }
 
+/* Âncoras (/#como-funciona) não ficam escondidas atrás da barra fixa */
+[id] {
+  scroll-margin-top: 112px;
+}
+
 body {
   min-height: 100vh;
   background: var(--creme);
