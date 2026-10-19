@@ -3,7 +3,7 @@
 import { Bell, Menu, X } from "lucide-react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { useEstado } from "@/data/estado";
 import { NOME_PAPEL } from "@/data/pessoas";
 import { naoLidas, temRevisoes } from "@/data/selectors";
@@ -156,13 +156,49 @@ export function NavBar() {
 
   const contador = logado ? naoLidas(estado, usuario.id) : 0;
 
+  // Indicador em pílula que desliza até o item ativo. Posicionado direto no
+  // DOM (sem estado) para não re-renderizar a barra a cada medida.
+  const refLista = useRef<HTMLUListElement>(null);
+  const refIndicador = useRef<HTMLLIElement>(null);
+  const chaveAtiva = itens.find(ativo)?.rotulo ?? "";
+  const chaveItens = itens.map((it) => it.rotulo).join("|");
+
+  useLayoutEffect(() => {
+    const lista = refLista.current;
+    const indicador = refIndicador.current;
+    if (!lista || !indicador) return;
+    function posicionar() {
+      const alvo = lista!.querySelector<HTMLElement>('a[aria-current="page"]');
+      if (!alvo) {
+        indicador!.style.opacity = "0";
+        return;
+      }
+      indicador!.style.opacity = "1";
+      indicador!.style.width = `${alvo.offsetWidth}px`;
+      indicador!.style.height = `${alvo.offsetHeight}px`;
+      indicador!.style.transform = `translate(${alvo.offsetLeft}px, ${alvo.offsetTop}px)`;
+    }
+    posicionar();
+    // Só anima depois da primeira posição, para não “voar” do canto ao carregar.
+    const quadro = requestAnimationFrame(() => {
+      indicador.dataset.pronto = "true";
+    });
+    const observador = new ResizeObserver(posicionar);
+    observador.observe(lista);
+    return () => {
+      cancelAnimationFrame(quadro);
+      observador.disconnect();
+    };
+  }, [chaveAtiva, chaveItens]);
+
   return (
     <header className={styles.barra}>
       <div className={styles.interno}>
         <Logo />
 
         <nav aria-label="Principal" className={`${styles.menu} ${menuMovel ? styles.menuAberto : ""}`}>
-          <ul className={`${styles.pilula} vidro`}>
+          <ul ref={refLista} className={`${styles.pilula} vidro`}>
+            <li ref={refIndicador} className={styles.indicador} role="presentation" aria-hidden="true" />
             {itens.map((it) => (
               <li key={it.rotulo}>
                 <Link
