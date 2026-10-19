@@ -238,12 +238,29 @@
   .ativo:hover {
     background: var(--ameixa);
   }
-  .criarConta {
-    display: none !important;
-  }
   .sino,
   .avatar > span:first-child {
     width: 48px !important;
     height: 48px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .direita {
+    gap: var(--e-1);
+  }
+  .entrar {
+    padding: 0 var(--e-1);
+    font-size: 14px;
+  }
+  .criarConta {
+    padding: 0 12px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 360px) {
+  .criarConta {
+    display: none;
   }
 }

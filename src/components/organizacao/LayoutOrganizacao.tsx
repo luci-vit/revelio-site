@@ -8,18 +8,16 @@ import styles from "./LayoutOrganizacao.module.css";
 const SECOES: { rotulo: string; caminho: string | null }[] = [
   { rotulo: "Visão geral", caminho: "" },
   { rotulo: "Alcance", caminho: "/alcance" },
-  { rotulo: "Inscritos", caminho: null },
   { rotulo: "Trabalhos", caminho: "/trabalhos" },
   { rotulo: "Comitê científico", caminho: "/comite" },
   { rotulo: "Seleção", caminho: "/selecao" },
   { rotulo: "Publicação", caminho: "/publicacao" },
-  { rotulo: "Certificados", caminho: "/publicacao#certificados" },
   { rotulo: "Configurações", caminho: null },
 ];
 
 /**
  * Área da organização (E2–E7): menu lateral do evento + conteúdo.
- * Itens sem tela no protótipo (Inscritos, Configurações) aparecem desabilitados.
+ * Configurações não tem tela no protótipo e aparece desabilitada.
  */
 export function LayoutOrganizacao({ slug, children }: { slug: string; children: ReactNode }) {
   const caminho = usePathname();

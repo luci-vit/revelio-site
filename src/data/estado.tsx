@@ -337,6 +337,21 @@ export function EstadoProvider({ children }: { children: ReactNode }) {
     try {
       const bruto = sessionStorage.getItem(CHAVE);
       if (bruto) salvo = { ...ESTADO_INICIAL, ...(JSON.parse(bruto) as Partial<Estado>) };
+      // Acrescenta a nova participante ao cenário anterior sem apagar a demonstração salva.
+      const participanteId = PESSOA_POR_PAPEL.participante;
+      if (salvo && !salvo.inscricoes.some((i) => i.pessoaId === participanteId)) {
+        const notificacoesSalvas = new Set(salvo.notificacoes.map((n) => n.id));
+        salvo.inscricoes = [
+          ...salvo.inscricoes,
+          ...INSCRICOES_INICIAIS.filter((i) => i.pessoaId === participanteId),
+        ];
+        salvo.notificacoes = [
+          ...NOTIFICACOES_INICIAIS.filter(
+            (n) => n.pessoaId === participanteId && !notificacoesSalvas.has(n.id),
+          ),
+          ...salvo.notificacoes,
+        ];
+      }
     } catch {
       // sem storage: segue com o estado inicial
     }

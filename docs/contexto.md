@@ -17,6 +17,7 @@ Plataforma para criar, divulgar e viver **vários** eventos científicos (congre
 
 ## Perfis e regras que a interface precisa mostrar
 - Perfis: Visitante, Conta, Participante, Autor, Revisor, Palestrante, Organizador.
+- O menu do organizador tem apenas **Eventos** e **Organização**, sem as abas pessoais **Minhas inscrições** e **Meus trabalhos**.
 - **Revisor**: só por convite da organização e com inscrição no evento. Ninguém se cadastra como revisor.
 - **Palestrante**: convidado pela organização (palestra, oficina, mesa) ou autor de trabalho aprovado marcado como apresentador.
 - Submissão de trabalho e parecer existem **só no site**.
@@ -29,7 +30,7 @@ Plataforma para criar, divulgar e viver **vários** eventos científicos (congre
 - Categorias: Graduação R$ 40, Pós-graduação R$ 60, Profissional R$ 120.
 - Prazos: submissões até 15/11/2026 23:59 (BRT); revisão até 10/12/2026 23:59; resultado 18/12/2026.
 - Outros eventos: Jornada de IHC 2026 (20 e 21/11/2026, on-line, gratuita); Congresso Nordestino de Bioinformática (10 a 12/03/2027, Recife, UFPE, R$ 120); Congresso de Computação Aplicada 2026 (15 a 17/09/2026, encerrado).
-- Pessoas: **Ana Ribeiro** (UFBA, pós-graduação, participante e autora, ingresso SBDA-1187, trabalho SBDA-0042 "Dados abertos para cidades inclusivas", apresenta em 3/02 às 14h na Sala 2); Luiz Pereira (coautor, IFBA); **Paulo Silva** (revisor); **Marta Souza** (organizadora); **Rafael Lima** (palestrante da oficina "Publicando dados com qualidade", 3/02 10:30, Laboratório 3, 86 pessoas na grade, cancelada no dia).
+- Pessoas: **Clara Almeida** (UFBA, graduação, participante sem trabalhos enviados, ingresso SBDA-1204); **Ana Ribeiro** (UFBA, pós-graduação, autora, ingresso SBDA-1187, trabalho SBDA-0042 "Dados abertos para cidades inclusivas", apresenta em 3/02 às 14h na Sala 2); Luiz Pereira (coautor, IFBA); **Paulo Silva** (revisor); **Marta Souza** (organizadora); **Rafael Lima** (palestrante da oficina "Publicando dados com qualidade", 3/02 10:30, Laboratório 3, 86 pessoas na grade, cancelada no dia).
 - Programação de 3/02: 09:00 "Dados abertos e confiança pública" (palestra magna, Helena Martins, Auditório principal); 10:30 oficina de Rafael Lima (Lab 3); 10:30 "Mobilidade e dados de bilhetagem" (Carla Dias, Sala 2); 10:30 "Transparência nos municípios" (mesa-redonda, Sala 1); 10:30–11:00 "Pôsteres: qualidade de dados" (Hall); 14:00 apresentação de Ana; 16:00 "Dados e eleições" (painel, Sala 1); 16:00 "Minicurso de visualização" (Lab 3, conflita com o painel).
 - Alcance (site, E7): 128 inscrições; 9.840 exibições do card → 2.310 cliques em "Ver evento" → 412 abriram a inscrição → 128 concluíram. Inscrições por semana a partir de 15/09: 6, 9, 14, 11, 10, 8, 12, 19, 22, 7, 5, 5. Cupons: UFBA10 (PPGCC-UFBA) 120 cliques/18 usos; LIGADADOS 210/14; DADOSBR 340/11; GOVLAB 35/7; NEWS 60/4. Origem: BA 46, SP 21, PE 14, MG 11, RJ 9, outros 27.
 

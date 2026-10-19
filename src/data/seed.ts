@@ -20,6 +20,39 @@ const luiz = {
 };
 
 export const INSCRICOES_INICIAIS: Inscricao[] = [
+  // Clara (participante): inscrições próprias, sem trabalhos enviados.
+  {
+    id: "i-sbda-clara",
+    eventoSlug: "sbda-2027",
+    pessoaId: "clara",
+    categoriaId: "graduacao",
+    ingresso: "SBDA-1204",
+    valorPago: 40,
+    situacao: "inscrita",
+    data: "2026-10-04T14:20:00-03:00",
+  },
+  {
+    id: "i-jihc-clara",
+    eventoSlug: "jornada-ihc-2026",
+    pessoaId: "clara",
+    categoriaId: "gratuita",
+    ingresso: "JIHC-0410",
+    valorPago: 0,
+    situacao: "inscrita",
+    data: "2026-10-06T09:30:00-03:00",
+  },
+  {
+    id: "i-cca-clara",
+    eventoSlug: "computacao-aplicada-2026",
+    pessoaId: "clara",
+    categoriaId: "graduacao",
+    ingresso: "CCA-0472",
+    valorPago: 30,
+    situacao: "encerrado",
+    data: "2026-06-02T10:15:00-03:00",
+    certificadoDisponivel: true,
+  },
+  // Ana (autora): mantém as inscrições necessárias para suas submissões.
   {
     id: "i-sbda-ana",
     eventoSlug: "sbda-2027",
@@ -312,7 +345,38 @@ export const DECISOES_INICIAIS: Record<string, Decisao> = {
 };
 
 export const NOTIFICACOES_INICIAIS: Notificacao[] = [
-  // Ana (participante/autora)
+  // Clara (participante): avisos de participação, sem submissões ou pareceres.
+  {
+    id: "n-clara-inscricao",
+    pessoaId: "clara",
+    tipo: "inscricao",
+    titulo: "Inscrição confirmada",
+    descricao: "IV Simpósio Brasileiro de Dados Abertos",
+    quando: "ontem",
+    acao: { rotulo: "Ver crachá", href: "/eventos/sbda-2027/inscricao/confirmada" },
+    lida: false,
+  },
+  {
+    id: "n-clara-certificado",
+    pessoaId: "clara",
+    tipo: "certificado",
+    titulo: "Certificado disponível",
+    descricao: "Congresso de Computação Aplicada 2026.",
+    quando: "12/10/2026",
+    acao: { rotulo: "Baixar certificado", href: "/minhas-inscricoes" },
+    lida: false,
+  },
+  {
+    id: "n-clara-horario",
+    pessoaId: "clara",
+    tipo: "horario",
+    titulo: "Horário alterado",
+    descricao: "Jornada de IHC 2026 · abertura passou para 9h (BRT).",
+    quando: "10/10/2026",
+    acao: { rotulo: "Ver o que mudou", href: "/eventos/jornada-ihc-2026" },
+    lida: true,
+  },
+  // Ana (autora)
   {
     id: "n-ana-prazo",
     pessoaId: "ana",

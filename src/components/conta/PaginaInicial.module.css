@@ -1,6 +1,10 @@
+.landing {
+  padding-top: var(--e-8);
+}
+
 .heroi {
   display: grid;
-  grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
   gap: var(--e-5);
   align-items: center;
 }
@@ -12,8 +16,17 @@
 }
 
 .titulo {
-  font-size: 52px;
-  line-height: 60px;
+  font-size: clamp(36px, 4.1vw, 52px);
+  line-height: 1.12;
+  text-wrap: balance;
+}
+
+.titulo span {
+  color: var(--rosa-profundo);
+}
+
+.semQuebra {
+  white-space: nowrap;
 }
 
 .subtitulo {
@@ -22,8 +35,54 @@
   line-height: 28px;
 }
 
-.busca {
-  margin-top: var(--e-4);
+.acoesHeroi {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--e-1);
+}
+
+.sobre {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+  gap: var(--e-8);
+  align-items: center;
+  margin-top: var(--e-10);
+  padding-top: var(--e-8);
+  border-top: 1px solid var(--linha);
+}
+
+.apresentacao,
+.objetivo,
+.cabecalhoSecao {
+  display: flex;
+  flex-direction: column;
+  gap: var(--e-2);
+}
+
+.apresentacao h2,
+.cabecalhoSecao h2 {
+  text-wrap: balance;
+}
+
+.objetivo {
+  padding: var(--e-4);
+  border-radius: var(--raio-card);
+  background: var(--pessego);
+}
+
+.objetivo > svg {
+  margin-bottom: var(--e-1);
+}
+
+.secao {
+  margin-top: var(--e-10);
+}
+
+.cabecalhoSecao {
+  max-width: 760px;
+  margin-bottom: var(--e-4);
+  gap: var(--e-1);
 }
 
 /* Passos + chamada para criar conta */
@@ -31,8 +90,6 @@
   display: grid;
   grid-template-columns: minmax(0, 3fr) minmax(0, 1fr);
   gap: var(--e-3);
-  margin-top: var(--e-5);
-  scroll-margin-top: calc(var(--altura-nav) + var(--e-3));
 }
 
 .listaPassos {
@@ -80,14 +137,66 @@
   gap: var(--e-2);
 }
 
+/* A conta é única; os perfis refletem a atuação em cada evento. */
+.conta {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--e-2);
+  padding: var(--e-3);
+  border: 1px solid var(--linha);
+  border-radius: var(--raio-card);
+  background: var(--branco);
+}
+
+.contaIcone {
+  display: inline-flex;
+  flex-shrink: 0;
+  padding: 12px;
+  border-radius: 50%;
+  background: var(--pessego);
+}
+
+.conta h3 {
+  margin-bottom: var(--e-1);
+}
+
+.perfis {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--e-4);
+  margin: var(--e-4) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.perfil {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--e-1);
+  padding: var(--e-2) 0 var(--e-3);
+  border-bottom: 1px solid var(--linha);
+}
+
+.perfilIcone {
+  margin-bottom: var(--e-1);
+  color: var(--rosa-profundo);
+}
+
+.perfilAcesso {
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 20px;
+  color: var(--rosa-profundo);
+}
+
 /* Para organizadores */
 .organizadores {
   display: flex;
   flex-direction: column;
   gap: var(--e-3);
-  margin-top: var(--e-6);
+  margin-top: var(--e-10);
   padding: var(--e-4);
-  scroll-margin-top: calc(var(--altura-nav) + var(--e-3));
 }
 
 .orgCabecalho {
@@ -131,6 +240,34 @@
   font-weight: 700;
 }
 
+.convite {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--e-4);
+  margin-top: var(--e-8);
+  padding: var(--e-6);
+  border-radius: var(--raio-card);
+  background: var(--ameixa);
+  color: var(--branco);
+}
+
+.convite > div {
+  max-width: 680px;
+}
+
+.convite h2 {
+  text-wrap: balance;
+}
+
+.convite p {
+  color: var(--pessego);
+}
+
+.convite > a {
+  flex-shrink: 0;
+}
+
 @media (max-width: 1100px) {
   .passos {
     grid-template-columns: 1fr;
@@ -142,9 +279,20 @@
     grid-template-columns: 1fr;
     gap: var(--e-4);
   }
-  .titulo {
-    font-size: 40px;
-    line-height: 46px;
+  .heroiTextos {
+    max-width: 680px;
+  }
+  .sobre {
+    gap: var(--e-4);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .perfis {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .convite {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: var(--e-4);
   }
   .orgLista {
     grid-template-columns: 1fr;
@@ -152,14 +300,39 @@
 }
 
 @media (max-width: 720px) {
+  .landing {
+    padding-top: var(--e-4);
+  }
   .titulo {
-    font-size: 32px;
-    line-height: 38px;
+    font-size: 36px;
+  }
+  .sobre {
+    grid-template-columns: 1fr;
+    margin-top: var(--e-6);
+    padding-top: var(--e-6);
+  }
+  .secao,
+  .organizadores {
+    margin-top: var(--e-8);
   }
   .listaPassos {
     grid-template-columns: 1fr;
   }
   .organizadores {
+    padding: var(--e-3);
+  }
+}
+
+@media (max-width: 480px) {
+  .perfis {
+    grid-template-columns: 1fr;
+    gap: var(--e-2);
+  }
+  .conta {
+    flex-direction: column;
+  }
+  .objetivo,
+  .convite {
     padding: var(--e-3);
   }
 }

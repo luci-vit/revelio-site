@@ -2,6 +2,16 @@ import type { Papel, Pessoa } from "./tipos";
 
 export const PESSOAS: Pessoa[] = [
   {
+    id: "clara",
+    nome: "Clara Almeida",
+    iniciais: "CA",
+    email: "clara.almeida@ufba.br",
+    instituicao: "UFBA",
+    vinculo: "Graduação",
+    temConta: true,
+    concordancia: "feminino",
+  },
+  {
     id: "ana",
     nome: "Ana Ribeiro",
     iniciais: "AR",
@@ -135,11 +145,11 @@ export function pessoa(id: string | null | undefined): Pessoa | undefined {
 
 /**
  * Pessoa que “está logada” em cada papel da demonstração.
- * Participante e autor são a mesma conta (Ana); o papel muda com o evento.
+ * Clara demonstra a participação sem trabalhos; Ana demonstra a autoria.
  */
 export const PESSOA_POR_PAPEL: Record<Papel, string | null> = {
   visitante: null,
-  participante: "ana",
+  participante: "clara",
   autor: "ana",
   revisor: "paulo",
   organizador: "marta",
